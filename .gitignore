@@ -1,0 +1,12 @@
+QLDSV_TC/Properties/*.settings
+QLDSV_TC/Properties/AssemblyInfo.cs
+QLDSV_TC/Properties/Settings.Designer.cs
+QLDSV_TC/Properties/*.licx
+QLDSV_TC/Properties/*.licx.bak
+QLDSV_TC/*.config
+QLDSV_TC/bin/
+QLDSV_TC/obj/
+.vs/
+*.vsQLDSV_TC/bin
+*.vs
+
