@@ -215,5 +215,41 @@ namespace QLDSV_TC
 
             return false;
         }
+
+        public static DataTable getListLTCDK(string maSV, string NK, int HK,bool DK)
+        {
+            DataTable dt = new DataTable();
+            dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_LTC_DANGKY @MASV =N'" + maSV + "', @NK =N'"+ NK + "', @DANGKY = "+DK+", @HK="+ HK);
+           
+            return dt;
+        }
+
+        public static bool dangKy(DataTable dt)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.SqlDbType = SqlDbType.Structured;
+            parameter.TypeName = "dbo.TYPE_DANGKYLTC";
+            parameter.ParameterName = "@DANGKYLTC";
+            parameter.Value = dt;
+
+            SqlCommand sqlcmd = new SqlCommand("SP_DANGKY", Program.conn);
+            sqlcmd.Parameters.Clear();
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.CommandTimeout = 600;
+            sqlcmd.Parameters.Add(parameter);
+
+            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+            try
+            {
+                sqlcmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Program.conn.Close();
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+        }
     }
 }

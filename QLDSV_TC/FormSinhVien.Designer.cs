@@ -69,7 +69,7 @@ namespace QLDSV_TC
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
-            this.tableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
+            this.lopTCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.v_DS_KHOATableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.V_DS_KHOATableAdapter();
             this.gridViewLop = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -450,7 +450,8 @@ namespace QLDSV_TC
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(494, 28);
             this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.ValueMember = "TENCN";
+            this.cmbKhoa.ValueMember = "TENSERVER";
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // vDSKHOABindingSource
             // 
@@ -476,9 +477,9 @@ namespace QLDSV_TC
             this.bdsLop.DataMember = "LOP";
             this.bdsLop.DataSource = this.qLDSV_TCDataSet;
             // 
-            // tableAdapter
+            // lopTCTableAdapter
             // 
-            this.tableAdapter.ClearBeforeFill = true;
+            this.lopTCTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -486,7 +487,7 @@ namespace QLDSV_TC
             this.tableAdapterManager.DANGKYTableAdapter = null;
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.KHOATableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = this.tableAdapter;
+            this.tableAdapterManager.LOPTableAdapter = this.lopTCTableAdapter;
             this.tableAdapterManager.LOPTINCHITableAdapter = null;
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
@@ -838,7 +839,7 @@ namespace QLDSV_TC
         private System.Windows.Forms.Label tENCNLabel;
         private System.Windows.Forms.BindingSource bdsLop;
         private QLDSV_TCDataSet qLDSV_TCDataSet;
-        private QLDSV_TCDataSetTableAdapters.LOPTableAdapter tableAdapter;
+        private QLDSV_TCDataSetTableAdapters.LOPTableAdapter lopTCTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private QLDSV_TCDataSet1 qLDSV_TCDataSet1;
         private System.Windows.Forms.BindingSource vDSKHOABindingSource;

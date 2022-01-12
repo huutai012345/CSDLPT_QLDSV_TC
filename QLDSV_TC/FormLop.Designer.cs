@@ -338,7 +338,8 @@ namespace QLDSV_TC
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(494, 28);
             this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.ValueMember = "TENCN";
+            this.cmbKhoa.ValueMember = "TENSERVER";
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // vDSKHOABindingSource
             // 

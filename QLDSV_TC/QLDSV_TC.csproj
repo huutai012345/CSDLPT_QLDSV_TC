@@ -130,6 +130,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="QLDSV_TCDataSet.cs">
+      <DependentUpon>QLDSV_TCDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QLDSV_TCDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

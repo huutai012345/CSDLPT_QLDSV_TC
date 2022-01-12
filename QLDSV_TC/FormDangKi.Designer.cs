@@ -30,11 +30,9 @@ namespace QLDSV_TC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnRefesh = new DevExpress.XtraBars.BarButtonItem();
-            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
-            this.btnRedo = new DevExpress.XtraBars.BarButtonItem();
             this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnClose = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -42,6 +40,9 @@ namespace QLDSV_TC
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRedo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRefesh = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.btnCTN = new DevExpress.XtraBars.BarButtonItem();
             this.btnIn = new DevExpress.XtraBars.BarButtonItem();
@@ -50,25 +51,6 @@ namespace QLDSV_TC
             this.btnDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenCN = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.tableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTC_DANGKYTableAdapter();
-            this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
-            this.gc = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMALTC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOSVTOITHIEU = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDADK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.cmbNK = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.cmbHK = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,15 +59,56 @@ namespace QLDSV_TC
             this.txtTen = new System.Windows.Forms.TextBox();
             this.btnLaySV = new System.Windows.Forms.Button();
             this.txtMaSV = new System.Windows.Forms.TextBox();
+            this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
+            this.bds = new System.Windows.Forms.BindingSource(this.components);
+            this.tableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTC_DANGKYTableAdapter();
+            this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
+            this.fillToolStrip = new System.Windows.Forms.ToolStrip();
+            this.nKToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.cmbNK = new System.Windows.Forms.ToolStripComboBox();
+            this.hKToolStripLabel = new System.Windows.Forms.ToolStripLabel();
+            this.cmbHK = new System.Windows.Forms.ToolStripComboBox();
+            this.fillToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.gcDADK = new DevExpress.XtraGrid.GridControl();
+            this.gvDADK = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.gcDK = new DevExpress.XtraGrid.GridControl();
+            this.gvDK = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMALTC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENMH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNHOM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOSVTOITHIEU = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDANGKY = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds)).BeginInit();
+            this.fillToolStrip.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDADK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDADK)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDK)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // barButtonItem9
+            // 
+            this.barButtonItem9.Name = "barButtonItem9";
             // 
             // barManager1
             // 
@@ -112,7 +135,7 @@ namespace QLDSV_TC
             this.btnChuyenCN,
             this.btnClose,
             this.barButtonItem1});
-            this.barManager1.MaxItemId = 24;
+            this.barManager1.MaxItemId = 25;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -123,39 +146,11 @@ namespace QLDSV_TC
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.FloatLocation = new System.Drawing.Point(244, 170);
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefesh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnUndo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRedo),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSave),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnClose)});
             this.bar1.OptionsBar.MultiLine = true;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Tools";
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Caption = "Refesh";
-            this.btnRefesh.Id = 5;
-            this.btnRefesh.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.refesh;
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnRefesh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefesh_ItemClick);
-            // 
-            // btnUndo
-            // 
-            this.btnUndo.Caption = "Undo";
-            this.btnUndo.Id = 3;
-            this.btnUndo.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.undo;
-            this.btnUndo.Name = "btnUndo";
-            this.btnUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // btnRedo
-            // 
-            this.btnRedo.Caption = "Redo";
-            this.btnRedo.Id = 4;
-            this.btnRedo.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.redo;
-            this.btnRedo.Name = "btnRedo";
-            this.btnRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // btnSave
             // 
@@ -223,6 +218,27 @@ namespace QLDSV_TC
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 599);
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Caption = "Undo";
+            this.btnUndo.Id = 3;
+            this.btnUndo.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.undo;
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Caption = "Redo";
+            this.btnRedo.Id = 4;
+            this.btnRedo.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.redo;
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Id = 24;
+            this.btnRefesh.Name = "btnRefesh";
+            // 
             // btnThoat
             // 
             this.btnThoat.Id = 22;
@@ -279,14 +295,98 @@ namespace QLDSV_TC
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // barButtonItem9
+            // panel1
             // 
-            this.barButtonItem9.Name = "barButtonItem9";
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtLop);
+            this.panel1.Controls.Add(this.txtTen);
+            this.panel1.Controls.Add(this.btnLaySV);
+            this.panel1.Controls.Add(this.txtMaSV);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(0, 58);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1062, 60);
+            this.panel1.TabIndex = 1022;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(774, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 21);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Mã Lớp:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(513, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Họ Tên SV:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 21);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Mã SV:";
+            // 
+            // txtLop
+            // 
+            this.txtLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLop.Location = new System.Drawing.Point(854, 16);
+            this.txtLop.Name = "txtLop";
+            this.txtLop.ReadOnly = true;
+            this.txtLop.Size = new System.Drawing.Size(152, 29);
+            this.txtLop.TabIndex = 3;
+            // 
+            // txtTen
+            // 
+            this.txtTen.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTen.Location = new System.Drawing.Point(618, 16);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.ReadOnly = true;
+            this.txtTen.Size = new System.Drawing.Size(116, 29);
+            this.txtTen.TabIndex = 2;
+            // 
+            // btnLaySV
+            // 
+            this.btnLaySV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLaySV.Location = new System.Drawing.Point(270, 16);
+            this.btnLaySV.Name = "btnLaySV";
+            this.btnLaySV.Size = new System.Drawing.Size(140, 29);
+            this.btnLaySV.TabIndex = 1;
+            this.btnLaySV.Text = "Tải Thông Tin SV";
+            this.btnLaySV.UseVisualStyleBackColor = true;
+            this.btnLaySV.Click += new System.EventHandler(this.btnLaySV_Click);
+            // 
+            // txtMaSV
+            // 
+            this.txtMaSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaSV.Location = new System.Drawing.Point(103, 16);
+            this.txtMaSV.Name = "txtMaSV";
+            this.txtMaSV.Size = new System.Drawing.Size(146, 29);
+            this.txtMaSV.TabIndex = 0;
             // 
             // qLDSV_TCDataSet
             // 
             this.qLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
             this.qLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // bds
+            // 
+            this.bds.DataMember = "SP_LAY_DS_LTC_DANGKY";
+            this.bds.DataSource = this.qLDSV_TCDataSet;
             // 
             // tableAdapter
             // 
@@ -305,35 +405,208 @@ namespace QLDSV_TC
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // gc
+            // fillToolStrip
             // 
-            this.gc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gc.Location = new System.Drawing.Point(0, 27);
-            this.gc.MainView = this.gridView1;
-            this.gc.MenuManager = this.barManager1;
-            this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(1062, 442);
-            this.gc.TabIndex = 1016;
-            this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.fillToolStrip.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nKToolStripLabel,
+            this.cmbNK,
+            this.hKToolStripLabel,
+            this.cmbHK,
+            this.fillToolStripButton});
+            this.fillToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillToolStrip.Name = "fillToolStrip";
+            this.fillToolStrip.Size = new System.Drawing.Size(1062, 29);
+            this.fillToolStrip.TabIndex = 1029;
+            this.fillToolStrip.Text = "fillToolStrip";
             // 
-            // gridView1
+            // nKToolStripLabel
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.nKToolStripLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nKToolStripLabel.Name = "nKToolStripLabel";
+            this.nKToolStripLabel.Size = new System.Drawing.Size(93, 26);
+            this.nKToolStripLabel.Text = "Niên Khóa:";
+            // 
+            // cmbNK
+            // 
+            this.cmbNK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNK.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNK.Name = "cmbNK";
+            this.cmbNK.Size = new System.Drawing.Size(120, 29);
+            // 
+            // hKToolStripLabel
+            // 
+            this.hKToolStripLabel.Name = "hKToolStripLabel";
+            this.hKToolStripLabel.Size = new System.Drawing.Size(70, 26);
+            this.hKToolStripLabel.Text = "Học Kì:";
+            // 
+            // cmbHK
+            // 
+            this.cmbHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHK.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbHK.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cmbHK.Name = "cmbHK";
+            this.cmbHK.Size = new System.Drawing.Size(100, 29);
+            // 
+            // fillToolStripButton
+            // 
+            this.fillToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillToolStripButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fillToolStripButton.Name = "fillToolStripButton";
+            this.fillToolStripButton.Size = new System.Drawing.Size(139, 26);
+            this.fillToolStripButton.Text = "Tải Lớp Tín Chỉ";
+            this.fillToolStripButton.Click += new System.EventHandler(this.fillToolStripButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.gcDADK);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.gcDK);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.fillToolStrip);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 118);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1062, 559);
+            this.panel2.TabIndex = 1023;
+            this.panel2.Visible = false;
+            // 
+            // gcDADK
+            // 
+            this.gcDADK.DataSource = this.bds;
+            this.gcDADK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcDADK.Location = new System.Drawing.Point(0, 344);
+            this.gcDADK.MainView = this.gvDADK;
+            this.gcDADK.MenuManager = this.barManager1;
+            this.gcDADK.Name = "gcDADK";
+            this.gcDADK.Size = new System.Drawing.Size(1062, 215);
+            this.gcDADK.TabIndex = 1030;
+            this.gcDADK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDADK});
+            // 
+            // gvDADK
+            // 
+            this.gvDADK.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
+            this.gridColumn7});
+            this.gvDADK.GridControl = this.gcDADK;
+            this.gvDADK.Name = "gvDADK";
+            this.gvDADK.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDADK_CellValueChanging);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.FieldName = "MALTC";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.FieldName = "MAMH";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.FieldName = "TENMH";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.FieldName = "NHOM";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.FieldName = "SOSVTOITHIEU";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.FieldName = "SL";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.FieldName = "DANGKY";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 296);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1062, 48);
+            this.panel3.TabIndex = 1032;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 11);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(353, 27);
+            this.label4.TabIndex = 1031;
+            this.label4.Text = "DANH SÁCH LỚP ĐÃ ĐĂNG KÝ";
+            // 
+            // gcDK
+            // 
+            this.gcDK.DataSource = this.bds;
+            this.gcDK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcDK.Location = new System.Drawing.Point(0, 77);
+            this.gcDK.MainView = this.gvDK;
+            this.gcDK.MenuManager = this.barManager1;
+            this.gcDK.Name = "gcDK";
+            this.gcDK.Size = new System.Drawing.Size(1062, 219);
+            this.gcDK.TabIndex = 0;
+            this.gcDK.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvDK});
+            // 
+            // gvDK
+            // 
+            this.gvDK.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMALTC,
             this.colMAMH,
             this.colTENMH,
             this.colNHOM,
             this.colSOSVTOITHIEU,
             this.colSL,
-            this.colDADK});
-            this.gridView1.GridControl = this.gc;
-            this.gridView1.Name = "gridView1";
+            this.colDANGKY});
+            this.gvDK.GridControl = this.gcDK;
+            this.gvDK.Name = "gvDK";
+            this.gvDK.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
             // 
             // colMALTC
             // 
             this.colMALTC.FieldName = "MALTC";
             this.colMALTC.Name = "colMALTC";
+            this.colMALTC.OptionsColumn.ReadOnly = true;
             this.colMALTC.Visible = true;
             this.colMALTC.VisibleIndex = 0;
             // 
@@ -341,6 +614,7 @@ namespace QLDSV_TC
             // 
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
+            this.colMAMH.OptionsColumn.ReadOnly = true;
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 1;
             // 
@@ -348,6 +622,7 @@ namespace QLDSV_TC
             // 
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.Name = "colTENMH";
+            this.colTENMH.OptionsColumn.ReadOnly = true;
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 2;
             // 
@@ -355,6 +630,7 @@ namespace QLDSV_TC
             // 
             this.colNHOM.FieldName = "NHOM";
             this.colNHOM.Name = "colNHOM";
+            this.colNHOM.OptionsColumn.ReadOnly = true;
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 3;
             // 
@@ -362,6 +638,7 @@ namespace QLDSV_TC
             // 
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
+            this.colSOSVTOITHIEU.OptionsColumn.ReadOnly = true;
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 4;
             // 
@@ -369,158 +646,35 @@ namespace QLDSV_TC
             // 
             this.colSL.FieldName = "SL";
             this.colSL.Name = "colSL";
+            this.colSL.OptionsColumn.ReadOnly = true;
             this.colSL.Visible = true;
             this.colSL.VisibleIndex = 5;
             // 
-            // colDADK
+            // colDANGKY
             // 
-            this.colDADK.FieldName = "DADK";
-            this.colDADK.Name = "colDADK";
-            this.colDADK.Visible = true;
-            this.colDADK.VisibleIndex = 6;
+            this.colDANGKY.FieldName = "DANGKY";
+            this.colDANGKY.Name = "colDANGKY";
+            this.colDANGKY.Visible = true;
+            this.colDANGKY.VisibleIndex = 6;
             // 
-            // toolStrip1
+            // panel4
             // 
-            this.toolStrip1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.cmbNK,
-            this.toolStripLabel2,
-            this.cmbHK,
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1062, 27);
-            this.toolStrip1.TabIndex = 1017;
-            this.toolStrip1.Text = "toolStrip1";
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 29);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1062, 48);
+            this.panel4.TabIndex = 1033;
             // 
-            // toolStripLabel1
+            // label5
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(79, 24);
-            this.toolStripLabel1.Text = "Niên Khóa:";
-            // 
-            // cmbNK
-            // 
-            this.cmbNK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNK.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbNK.Name = "cmbNK";
-            this.cmbNK.Size = new System.Drawing.Size(100, 27);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(57, 24);
-            this.toolStripLabel2.Text = "Học Kì:";
-            // 
-            // cmbHK
-            // 
-            this.cmbHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHK.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbHK.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cmbHK.Name = "cmbHK";
-            this.cmbHK.Size = new System.Drawing.Size(100, 27);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(109, 24);
-            this.toolStripButton1.Text = "Tải Lớp Tín Chỉ";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtLop);
-            this.panel1.Controls.Add(this.txtTen);
-            this.panel1.Controls.Add(this.btnLaySV);
-            this.panel1.Controls.Add(this.txtMaSV);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 60);
-            this.panel1.TabIndex = 1022;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(737, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 17);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Mã Lớp:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(504, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Họ Tên SV:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Mã SV:";
-            // 
-            // txtLop
-            // 
-            this.txtLop.Location = new System.Drawing.Point(811, 14);
-            this.txtLop.Name = "txtLop";
-            this.txtLop.ReadOnly = true;
-            this.txtLop.Size = new System.Drawing.Size(100, 25);
-            this.txtLop.TabIndex = 3;
-            // 
-            // txtTen
-            // 
-            this.txtTen.Location = new System.Drawing.Point(588, 14);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(100, 25);
-            this.txtTen.TabIndex = 2;
-            // 
-            // btnLaySV
-            // 
-            this.btnLaySV.Location = new System.Drawing.Point(255, 14);
-            this.btnLaySV.Name = "btnLaySV";
-            this.btnLaySV.Size = new System.Drawing.Size(140, 23);
-            this.btnLaySV.TabIndex = 1;
-            this.btnLaySV.Text = "Tải Thông Tin SV";
-            this.btnLaySV.UseVisualStyleBackColor = true;
-            this.btnLaySV.Click += new System.EventHandler(this.btnLaySV_Click);
-            // 
-            // txtMaSV
-            // 
-            this.txtMaSV.Location = new System.Drawing.Point(90, 14);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(146, 25);
-            this.txtMaSV.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.gc);
-            this.panel2.Controls.Add(this.toolStrip1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 118);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1062, 469);
-            this.panel2.TabIndex = 1023;
-            this.panel2.Visible = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(313, 27);
+            this.label5.TabIndex = 1032;
+            this.label5.Text = "DANH SÁCH LỚP ĐĂNG KÝ";
             // 
             // FormDangKi
             // 
@@ -542,61 +696,29 @@ namespace QLDSV_TC
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bds)).EndInit();
+            this.fillToolStrip.ResumeLayout(false);
+            this.fillToolStrip.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDADK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDADK)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvDK)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private DevExpress.XtraBars.BarManager barManager1;
-        private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.Bar bar3;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem btnUndo;
-        private DevExpress.XtraBars.BarButtonItem btnRedo;
-        private DevExpress.XtraBars.BarButtonItem btnRefesh;
-        private DevExpress.XtraBars.BarButtonItem btnThoat;
-        private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem btnCTN;
-        private DevExpress.XtraBars.BarButtonItem btnIn;
-        private DevExpress.XtraBars.BarButtonItem btnCancel;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem btnDK;
-        private DevExpress.XtraBars.BarButtonItem btnChuyenCN;
-        private QLDSV_TCDataSet qLDSV_TCDataSet;
-        private DevExpress.XtraBars.BarButtonItem btnClose;
-        private QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTC_DANGKYTableAdapter tableAdapter;
-        private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraGrid.GridControl gc;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMALTC;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
-        private DevExpress.XtraGrid.Columns.GridColumn colNHOM;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
-        private DevExpress.XtraGrid.Columns.GridColumn colSL;
-        private DevExpress.XtraGrid.Columns.GridColumn colDADK;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripComboBox cmbNK;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripComboBox cmbHK;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -605,6 +727,58 @@ namespace QLDSV_TC
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.Button btnLaySV;
         private System.Windows.Forms.TextBox txtMaSV;
+        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.Bar bar1;
+        private DevExpress.XtraBars.BarButtonItem btnRefesh;
+        private DevExpress.XtraBars.BarButtonItem btnUndo;
+        private DevExpress.XtraBars.BarButtonItem btnRedo;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
+        private DevExpress.XtraBars.BarButtonItem btnClose;
+        private DevExpress.XtraBars.Bar bar3;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarButtonItem btnThoat;
+        private DevExpress.XtraBars.BarButtonItem btnCTN;
+        private DevExpress.XtraBars.BarButtonItem btnIn;
+        private DevExpress.XtraBars.BarButtonItem btnCancel;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem btnDK;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenCN;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private System.Windows.Forms.BindingSource bds;
+        private QLDSV_TCDataSet qLDSV_TCDataSet;
+        private QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTC_DANGKYTableAdapter tableAdapter;
+        private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStrip fillToolStrip;
+        private System.Windows.Forms.ToolStripLabel nKToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox cmbNK;
+        private System.Windows.Forms.ToolStripLabel hKToolStripLabel;
+        private System.Windows.Forms.ToolStripComboBox cmbHK;
+        private System.Windows.Forms.ToolStripButton fillToolStripButton;
+        public DevExpress.XtraGrid.GridControl gcDK;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDK;
+        private DevExpress.XtraGrid.Columns.GridColumn colMALTC;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENMH;
+        private DevExpress.XtraGrid.Columns.GridColumn colNHOM;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
+        private DevExpress.XtraGrid.Columns.GridColumn colSL;
+        private DevExpress.XtraGrid.Columns.GridColumn colDANGKY;
+        public DevExpress.XtraGrid.GridControl gcDADK;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvDADK;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
     }
 }

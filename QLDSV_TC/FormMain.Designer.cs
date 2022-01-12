@@ -36,7 +36,6 @@ namespace QLDSV_TC
             this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.btMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnLopTinChi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.dsvt = new DevExpress.XtraBars.BarButtonItem();
@@ -72,7 +71,6 @@ namespace QLDSV_TC
             this.btnSinhVien,
             this.btMonHoc,
             this.btnLopTinChi,
-            this.btnThoat,
             this.btnLogout,
             this.barButtonItem3,
             this.dsvt,
@@ -86,7 +84,6 @@ namespace QLDSV_TC
             this.ribbonControl1.MaxItemId = 30;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsMenuMinWidth = 412;
-            this.ribbonControl1.PageHeaderItemLinks.Add(this.btnThoat);
             this.ribbonControl1.PageHeaderItemLinks.Add(this.btnLogout);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -130,20 +127,14 @@ namespace QLDSV_TC
             this.btnLopTinChi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             this.btnLopTinChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLopTinChi_ItemClick);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Caption = "Đăng Xuất";
-            this.btnThoat.Id = 18;
-            this.btnThoat.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.login;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
-            // 
             // btnLogout
             // 
             this.btnLogout.Caption = "Thoát";
             this.btnLogout.Id = 21;
+            this.btnLogout.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.login;
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // barButtonItem3
             // 
@@ -301,7 +292,6 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.BarButtonItem btnSinhVien;
         private DevExpress.XtraBars.BarButtonItem btMonHoc;
         private DevExpress.XtraBars.BarButtonItem btnLopTinChi;
-        private DevExpress.XtraBars.BarButtonItem btnThoat;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;

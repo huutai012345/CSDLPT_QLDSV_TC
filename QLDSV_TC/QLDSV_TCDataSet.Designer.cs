@@ -3955,7 +3955,7 @@ namespace QLDSV_TC {
             
             private global::System.Data.DataColumn columnSL;
             
-            private global::System.Data.DataColumn columnDADK;
+            private global::System.Data.DataColumn columnDANGKY;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -4040,9 +4040,9 @@ namespace QLDSV_TC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DADKColumn {
+            public global::System.Data.DataColumn DANGKYColumn {
                 get {
-                    return this.columnDADK;
+                    return this.columnDANGKY;
                 }
             }
             
@@ -4083,7 +4083,7 @@ namespace QLDSV_TC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SP_LAY_DS_LTC_DANGKYRow AddSP_LAY_DS_LTC_DANGKYRow(string MAMH, string TENMH, int NHOM, int SOSVTOITHIEU, int SL, bool DADK) {
+            public SP_LAY_DS_LTC_DANGKYRow AddSP_LAY_DS_LTC_DANGKYRow(string MAMH, string TENMH, int NHOM, int SOSVTOITHIEU, int SL, bool DANGKY) {
                 SP_LAY_DS_LTC_DANGKYRow rowSP_LAY_DS_LTC_DANGKYRow = ((SP_LAY_DS_LTC_DANGKYRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4092,7 +4092,7 @@ namespace QLDSV_TC {
                         NHOM,
                         SOSVTOITHIEU,
                         SL,
-                        DADK};
+                        DANGKY};
                 rowSP_LAY_DS_LTC_DANGKYRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_LAY_DS_LTC_DANGKYRow);
                 return rowSP_LAY_DS_LTC_DANGKYRow;
@@ -4129,7 +4129,7 @@ namespace QLDSV_TC {
                 this.columnNHOM = base.Columns["NHOM"];
                 this.columnSOSVTOITHIEU = base.Columns["SOSVTOITHIEU"];
                 this.columnSL = base.Columns["SL"];
-                this.columnDADK = base.Columns["DADK"];
+                this.columnDANGKY = base.Columns["DANGKY"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4147,8 +4147,8 @@ namespace QLDSV_TC {
                 base.Columns.Add(this.columnSOSVTOITHIEU);
                 this.columnSL = new global::System.Data.DataColumn("SL", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSL);
-                this.columnDADK = new global::System.Data.DataColumn("DADK", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDADK);
+                this.columnDANGKY = new global::System.Data.DataColumn("DANGKY", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDANGKY);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMALTC,
                                 this.columnMAMH}, true));
@@ -4162,7 +4162,7 @@ namespace QLDSV_TC {
                 this.columnNHOM.AllowDBNull = false;
                 this.columnSOSVTOITHIEU.AllowDBNull = false;
                 this.columnSL.ReadOnly = true;
-                this.columnDADK.ReadOnly = true;
+                this.columnDANGKY.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5580,17 +5580,17 @@ namespace QLDSV_TC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool DADK {
+            public bool DANGKY {
                 get {
                     try {
-                        return ((bool)(this[this.tableSP_LAY_DS_LTC_DANGKY.DADKColumn]));
+                        return ((bool)(this[this.tableSP_LAY_DS_LTC_DANGKY.DANGKYColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DADK\' in table \'SP_LAY_DS_LTC_DANGKY\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DANGKY\' in table \'SP_LAY_DS_LTC_DANGKY\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_LAY_DS_LTC_DANGKY.DADKColumn] = value;
+                    this[this.tableSP_LAY_DS_LTC_DANGKY.DANGKYColumn] = value;
                 }
             }
             
@@ -5608,14 +5608,14 @@ namespace QLDSV_TC {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDADKNull() {
-                return this.IsNull(this.tableSP_LAY_DS_LTC_DANGKY.DADKColumn);
+            public bool IsDANGKYNull() {
+                return this.IsNull(this.tableSP_LAY_DS_LTC_DANGKY.DANGKYColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDADKNull() {
-                this[this.tableSP_LAY_DS_LTC_DANGKY.DADKColumn] = global::System.Convert.DBNull;
+            public void SetDANGKYNull() {
+                this[this.tableSP_LAY_DS_LTC_DANGKY.DANGKYColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9774,7 +9774,7 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
             tableMapping.ColumnMappings.Add("NHOM", "NHOM");
             tableMapping.ColumnMappings.Add("SOSVTOITHIEU", "SOSVTOITHIEU");
             tableMapping.ColumnMappings.Add("SL", "SL");
-            tableMapping.ColumnMappings.Add("DADK", "DADK");
+            tableMapping.ColumnMappings.Add("DANGKY", "DANGKY");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -9797,13 +9797,14 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NK", global::System.Data.SqlDbType.NVarChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HK", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MASV", global::System.Data.SqlDbType.NChar, 10, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DANGKY", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable dataTable, string NK, global::System.Nullable<int> HK, string MASV) {
+        public virtual int Fill(QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable dataTable, string NK, global::System.Nullable<int> HK, string MASV, global::System.Nullable<bool> DANGKY) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((NK == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -9822,6 +9823,12 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(MASV));
+            }
+            if ((DANGKY.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(DANGKY.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9834,7 +9841,7 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable GetData(string NK, global::System.Nullable<int> HK, string MASV) {
+        public virtual QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable GetData(string NK, global::System.Nullable<int> HK, string MASV, global::System.Nullable<bool> DANGKY) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((NK == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -9853,6 +9860,12 @@ SELECT MASV, HO, TEN, PHAI, DIACHI, NGAYSINH, MALOP, DANGHIHOC, PASSWORD FROM SI
             }
             else {
                 this.Adapter.SelectCommand.Parameters[3].Value = ((string)(MASV));
+            }
+            if ((DANGKY.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[4].Value = ((bool)(DANGKY.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable dataTable = new QLDSV_TCDataSet.SP_LAY_DS_LTC_DANGKYDataTable();
             this.Adapter.Fill(dataTable);

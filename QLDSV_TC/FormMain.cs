@@ -144,5 +144,11 @@ namespace QLDSV_TC
                 f.Show();
             }
         }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Hide();
+            new FormLogin(Program.mlogin, Program.password).Show();
+        }
     }
 }

@@ -31,7 +31,6 @@ namespace QLDSV_TC
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMonHoc));
-            this.tENCNLabel = new System.Windows.Forms.Label();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
@@ -54,8 +53,6 @@ namespace QLDSV_TC
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenCN = new DevExpress.XtraBars.BarButtonItem();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.vDSKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSV_TCDataSet1 = new QLDSV_TC.QLDSV_TCDataSet1();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
@@ -80,7 +77,6 @@ namespace QLDSV_TC
             this.colSOTIET_LT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOTIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vDSKHOABindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).BeginInit();
@@ -89,16 +85,6 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tENCNLabel
-            // 
-            this.tENCNLabel.AutoSize = true;
-            this.tENCNLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tENCNLabel.Location = new System.Drawing.Point(201, 17);
-            this.tENCNLabel.Name = "tENCNLabel";
-            this.tENCNLabel.Size = new System.Drawing.Size(54, 21);
-            this.tENCNLabel.TabIndex = 0;
-            this.tENCNLabel.Text = "Khoa:";
             // 
             // barManager1
             // 
@@ -315,29 +301,6 @@ namespace QLDSV_TC
             this.btnChuyenCN.Name = "btnChuyenCN";
             this.btnChuyenCN.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.tENCNLabel);
-            this.panel1.Controls.Add(this.cmbKhoa);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 58);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1062, 60);
-            this.panel1.TabIndex = 99;
-            // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.DataSource = this.vDSKHOABindingSource;
-            this.cmbKhoa.DisplayMember = "TENCN";
-            this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbKhoa.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(257, 14);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(494, 28);
-            this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.ValueMember = "TENCN";
-            // 
             // vDSKHOABindingSource
             // 
             this.vDSKHOABindingSource.DataMember = "V_DS_KHOA";
@@ -402,7 +365,7 @@ namespace QLDSV_TC
             this.groupBox1.Controls.Add(this.hOLabel);
             this.groupBox1.Controls.Add(this.mANVLabel);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 329);
+            this.groupBox1.Location = new System.Drawing.Point(0, 269);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1062, 156);
             this.groupBox1.TabIndex = 1001;
@@ -475,7 +438,7 @@ namespace QLDSV_TC
             // 
             this.gc.DataSource = this.bds;
             this.gc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gc.Location = new System.Drawing.Point(0, 118);
+            this.gc.Location = new System.Drawing.Point(0, 58);
             this.gc.MainView = this.gridView1;
             this.gc.MenuManager = this.barManager1;
             this.gc.Name = "gc";
@@ -529,7 +492,6 @@ namespace QLDSV_TC
             this.ClientSize = new System.Drawing.Size(1062, 668);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gc);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -543,8 +505,6 @@ namespace QLDSV_TC
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vDSKHOABindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).EndInit();
@@ -563,7 +523,6 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar3;
-        private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -581,11 +540,9 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.BarButtonItem btnIn;
         private DevExpress.XtraBars.BarButtonItem btnCancel;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private System.Windows.Forms.ComboBox cmbKhoa;
         private DevExpress.XtraBars.BarButtonItem btnClose;
         private DevExpress.XtraBars.BarButtonItem btnDK;
         private DevExpress.XtraBars.BarButtonItem btnChuyenCN;
-        private System.Windows.Forms.Label tENCNLabel;
         private QLDSV_TCDataSet qLDSV_TCDataSet;
         private QLDSV_TCDataSet1 qLDSV_TCDataSet1;
         private System.Windows.Forms.BindingSource vDSKHOABindingSource;

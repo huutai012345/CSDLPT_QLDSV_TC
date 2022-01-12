@@ -36,11 +36,11 @@ namespace QLDSV_TC
             // TODO: This line of code loads data into the 'qLDSV_TCDataSet.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Fill(this.qLDSV_TCDataSet.MONHOC);
             // TODO: This line of code loads data into the 'qLDSV_TCDataSet.LOPTINCHI' table. You can move, or remove it, as needed.
+            this.tableAdapter.Connection.ConnectionString = Program.connstr;
             this.tableAdapter.Fill(this.qLDSV_TCDataSet.LOPTINCHI);
             // TODO: This line of code loads data into the 'qLDSV_TCDataSet1.V_DS_KHOA' table. You can move, or remove it, as needed.
             this.v_DS_KHOATableAdapter.Fill(this.qLDSV_TCDataSet1.V_DS_KHOA);
-            // TODO: This line of code loads data into the 'qLDSV_TCDataSet.LOP' table. You can move, or remove it, as needed.
-            this.tableAdapter.Fill(this.qLDSV_TCDataSet.LOPTINCHI);
+          
 
             cmbMaGiangVien.SelectedIndex = 0;
             cmbMaMonHoc.SelectedIndex = 0;
@@ -80,6 +80,7 @@ namespace QLDSV_TC
             btnSave.Enabled = btnCancel.Enabled = true;
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled
                 = btnRefesh.Enabled = btnUndo.Enabled = btnRedo.Enabled = btnClose.Enabled = false;
+            cmbKhoa.Enabled = false;
         }
 
         private void confrimMode()
@@ -91,6 +92,7 @@ namespace QLDSV_TC
             btnSave.Enabled = btnCancel.Enabled = false;
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled
                 = btnRefesh.Enabled = btnUndo.Enabled = btnRedo.Enabled = btnClose.Enabled = true;
+            cmbKhoa.Enabled = true;
         }
 
         private void updateTableAdapter()
@@ -286,6 +288,38 @@ namespace QLDSV_TC
                 }
 
                 this.refesh();
+            }
+        }
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbKhoa.SelectedValue != null)
+            {
+                Program.servername = cmbKhoa.SelectedValue.ToString();
+                Program.maKhoa = cmbKhoa.Text;
+
+                if (cmbKhoa.SelectedIndex != Program.mChinhanh)
+                {
+                    Program.mlogin = Program.remotelogin;
+                    Program.password = Program.remotepassword;
+                }
+                else
+                {
+                    Program.mlogin = Program.mloginDN;
+                    Program.password = Program.passwordDN;
+                }
+
+                if (Program.KetNoi() == 0)
+                {
+                    MessageBox.Show("Loi");
+                }
+                else
+                {
+
+                    this.tableAdapter.Connection.ConnectionString = Program.connstr;
+                    //this.v_DS_PHANMANHTableAdapter.Fill(this.qLVT_DATHANGDataSet.V_DS_PHANMANH);
+                    this.tableAdapter.Fill(this.qLDSV_TCDataSet.LOPTINCHI);
+                }
             }
         }
     }

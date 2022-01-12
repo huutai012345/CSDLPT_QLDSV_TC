@@ -18,6 +18,14 @@ namespace QLDSV_TC
             InitializeComponent();
         }
 
+        public FormLogin(String loginName, String pass)
+        {
+            InitializeComponent();
+
+            txtUserName.Text = loginName;
+            txtPass.Text = pass;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             if (txtUserName.Text.Trim() == "" && txtPass.Text.Trim() == "")
@@ -60,10 +68,10 @@ namespace QLDSV_TC
 
             this.Hide();
 
-            Program.fmChinh = new FormMain();
-            Program.fmChinh.MANV.Text = "Mã: " + Program.username;
-            Program.fmChinh.HOTEN.Text = "Họ Tên: " + Program.mHoten;
-            Program.fmChinh.NHOM.Text = "Nhóm Quyền: " + Program.mGroup;
+            Program.fmMain = new FormMain();
+            Program.fmMain.MANV.Text = "Mã: " + Program.username;
+            Program.fmMain.HOTEN.Text = "Họ Tên: " + Program.mHoten;
+            Program.fmMain.NHOM.Text = "Nhóm Quyền: " + Program.mGroup;
 
             if (Program.mGroup == Program.nhomQuyen[2])
             {
@@ -72,7 +80,7 @@ namespace QLDSV_TC
             }
             else if (Program.mGroup == Program.nhomQuyen[0] || Program.mGroup == Program.nhomQuyen[1])
             {
-                Program.fmChinh.Show();
+                Program.fmMain.Show();
             }
         }
 
@@ -92,12 +100,10 @@ namespace QLDSV_TC
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbKhoa.SelectedValue == null)
+            if (cmbKhoa.SelectedValue != null)
             {
-                return;
+                Program.servername = cmbKhoa.SelectedValue.ToString();
             }
-
-            Program.servername = cmbKhoa.SelectedValue.ToString();
         }
     }
 }

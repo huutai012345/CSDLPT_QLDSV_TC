@@ -29,6 +29,9 @@ namespace QLDSV_TC
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSV_TCDataSet1.V_DS_KHOA' table. You can move, or remove it, as needed.
+            this.v_DS_KHOATableAdapter.Fill(this.qLDSV_TCDataSet1.V_DS_KHOA);
+
             Utils.getListNKLopTC(this.cmbNK);
            
             this.cmbNK.SelectedIndex = 0;
@@ -46,7 +49,7 @@ namespace QLDSV_TC
 
         private void refesh()
         {
-            this.dSSV_TableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DSSV_DANGKY, maLopTC);
+            this.dSSVTableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DSSV_DANGKY, maLopTC);
             this.btnSave.Enabled = false;
         }
 
@@ -125,16 +128,12 @@ namespace QLDSV_TC
             this.refesh();
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            this.Close();
-        }
-
         private void fillToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.lopTC_TableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DS_LTC, cmbNK.Text, new System.Nullable<int>(((int)(System.Convert.ChangeType(cmbHK.Text, typeof(int))))));
+                this.lopTCTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.lopTCTableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DS_LTC, cmbNK.Text, new System.Nullable<int>(((int)(System.Convert.ChangeType(cmbHK.Text, typeof(int))))));
             }
             catch (System.Exception ex)
             {
@@ -151,7 +150,7 @@ namespace QLDSV_TC
                 {
                     this.btnSave.Enabled = false;
                     this.maLopTC = int.Parse(gridViewLopTC.GetRowCellValue(selectedRowHandles[0], "MALTC").ToString());
-                    this.dSSV_TableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DSSV_DANGKY, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.maLopTC, typeof(int))))));
+                    this.dSSVTableAdapter.Fill(this.qLDSV_TCDataSet.SP_LAY_DSSV_DANGKY, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.maLopTC, typeof(int))))));
                 }
                 catch (System.Exception ex)
                 {
@@ -163,6 +162,31 @@ namespace QLDSV_TC
         private void gridViewDSSV_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             this.btnSave.Enabled = true;
+        }
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbKhoa.SelectedValue != null)
+            {
+                Program.servername = cmbKhoa.SelectedValue.ToString();
+                Program.maKhoa = cmbKhoa.Text;
+
+                if (cmbKhoa.SelectedIndex != Program.mChinhanh)
+                {
+                    Program.mlogin = Program.remotelogin;
+                    Program.password = Program.remotepassword;
+                }
+                else
+                {
+                    Program.mlogin = Program.mloginDN;
+                    Program.password = Program.passwordDN;
+                }
+
+                if (Program.KetNoi() == 0)
+                {
+                    MessageBox.Show("Loi");
+                }
+            }
         }
     }
 }

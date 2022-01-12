@@ -56,7 +56,7 @@ namespace QLDSV_TC
             this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
             this.v_DS_KHOATableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.V_DS_KHOATableAdapter();
             this.bdsLTC = new System.Windows.Forms.BindingSource(this.components);
-            this.lopTC_TableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTCTableAdapter();
+            this.lopTCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTCTableAdapter();
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.fillToolStrip = new System.Windows.Forms.ToolStrip();
             this.nKToolStripLabel = new System.Windows.Forms.ToolStripLabel();
@@ -74,7 +74,7 @@ namespace QLDSV_TC
             this.tENCNLabel = new System.Windows.Forms.Label();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.bdsDSSV = new System.Windows.Forms.BindingSource(this.components);
-            this.dSSV_TableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DSSV_DANGKYTableAdapter();
+            this.dSSVTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.SP_LAY_DSSV_DANGKYTableAdapter();
             this.gcDSSV = new DevExpress.XtraGrid.GridControl();
             this.gridViewDSSV = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -308,9 +308,9 @@ namespace QLDSV_TC
             this.bdsLTC.DataMember = "SP_LAY_DS_LTC";
             this.bdsLTC.DataSource = this.qLDSV_TCDataSet;
             // 
-            // lopTC_TableAdapter
+            // lopTCTableAdapter
             // 
-            this.lopTC_TableAdapter.ClearBeforeFill = true;
+            this.lopTCTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
@@ -464,16 +464,17 @@ namespace QLDSV_TC
             this.cmbKhoa.Name = "cmbKhoa";
             this.cmbKhoa.Size = new System.Drawing.Size(494, 28);
             this.cmbKhoa.TabIndex = 1;
-            this.cmbKhoa.ValueMember = "TENCN";
+            this.cmbKhoa.ValueMember = "TENSERVER";
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // bdsDSSV
             // 
             this.bdsDSSV.DataMember = "SP_LAY_DSSV_DANGKY";
             this.bdsDSSV.DataSource = this.qLDSV_TCDataSet;
             // 
-            // dSSV_TableAdapter
+            // dSSVTableAdapter
             // 
-            this.dSSV_TableAdapter.ClearBeforeFill = true;
+            this.dSSVTableAdapter.ClearBeforeFill = true;
             // 
             // gcDSSV
             // 
@@ -611,7 +612,7 @@ namespace QLDSV_TC
         private System.Windows.Forms.ToolStripLabel hKToolStripLabel;
         private System.Windows.Forms.ToolStripButton fillToolStripButton;
         private System.Windows.Forms.BindingSource bdsLTC;
-        private QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTCTableAdapter lopTC_TableAdapter;
+        private QLDSV_TCDataSetTableAdapters.SP_LAY_DS_LTCTableAdapter lopTCTableAdapter;
         private QLDSV_TCDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcLTC;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewLopTC;
@@ -625,7 +626,7 @@ namespace QLDSV_TC
         private System.Windows.Forms.ComboBox cmbKhoa;
         private System.Windows.Forms.ToolStripComboBox cmbNK;
         private System.Windows.Forms.BindingSource bdsDSSV;
-        private QLDSV_TCDataSetTableAdapters.SP_LAY_DSSV_DANGKYTableAdapter dSSV_TableAdapter;
+        private QLDSV_TCDataSetTableAdapters.SP_LAY_DSSV_DANGKYTableAdapter dSSVTableAdapter;
         private DevExpress.XtraGrid.GridControl gcDSSV;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDSSV;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;

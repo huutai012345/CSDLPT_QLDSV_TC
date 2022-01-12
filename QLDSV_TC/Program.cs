@@ -33,7 +33,7 @@ namespace QLDSV_TC
 
         public static String[] nhomQuyen = new string[4] { "PGV", "KHOA", "SV","PKT" };
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
-        public static FormMain fmChinh;
+        public static FormMain fmMain;
         public static FormLogin fmDN;
 
         public static int KetNoi()
@@ -83,7 +83,6 @@ namespace QLDSV_TC
             if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn);
             da.Fill(dt);
-            conn.Close();
             return dt;
         }
 
