@@ -499,7 +499,7 @@ namespace QLDSV_TC
             this.gridColumn7});
             this.gvDADK.GridControl = this.gcDADK;
             this.gvDADK.Name = "gvDADK";
-            this.gvDADK.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDADK_CellValueChanging);
+            this.gvDADK.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDADK_CellValueChanged);
             // 
             // gridColumn1
             // 
@@ -600,12 +600,13 @@ namespace QLDSV_TC
             this.colDANGKY});
             this.gvDK.GridControl = this.gcDK;
             this.gvDK.Name = "gvDK";
-            this.gvDK.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanging);
+            this.gvDK.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDK_CellValueChanged);
             // 
             // colMALTC
             // 
             this.colMALTC.FieldName = "MALTC";
             this.colMALTC.Name = "colMALTC";
+            this.colMALTC.OptionsColumn.AllowEdit = false;
             this.colMALTC.OptionsColumn.ReadOnly = true;
             this.colMALTC.Visible = true;
             this.colMALTC.VisibleIndex = 0;
@@ -614,6 +615,7 @@ namespace QLDSV_TC
             // 
             this.colMAMH.FieldName = "MAMH";
             this.colMAMH.Name = "colMAMH";
+            this.colMAMH.OptionsColumn.AllowEdit = false;
             this.colMAMH.OptionsColumn.ReadOnly = true;
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 1;
@@ -622,6 +624,7 @@ namespace QLDSV_TC
             // 
             this.colTENMH.FieldName = "TENMH";
             this.colTENMH.Name = "colTENMH";
+            this.colTENMH.OptionsColumn.AllowEdit = false;
             this.colTENMH.OptionsColumn.ReadOnly = true;
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 2;
@@ -630,6 +633,7 @@ namespace QLDSV_TC
             // 
             this.colNHOM.FieldName = "NHOM";
             this.colNHOM.Name = "colNHOM";
+            this.colNHOM.OptionsColumn.AllowEdit = false;
             this.colNHOM.OptionsColumn.ReadOnly = true;
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 3;
@@ -638,6 +642,7 @@ namespace QLDSV_TC
             // 
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
+            this.colSOSVTOITHIEU.OptionsColumn.AllowEdit = false;
             this.colSOSVTOITHIEU.OptionsColumn.ReadOnly = true;
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 4;
@@ -646,6 +651,7 @@ namespace QLDSV_TC
             // 
             this.colSL.FieldName = "SL";
             this.colSL.Name = "colSL";
+            this.colSL.OptionsColumn.AllowEdit = false;
             this.colSL.OptionsColumn.ReadOnly = true;
             this.colSL.Visible = true;
             this.colSL.VisibleIndex = 5;

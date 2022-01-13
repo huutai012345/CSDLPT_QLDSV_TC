@@ -53,11 +53,8 @@ namespace QLDSV_TC
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnDK = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenCN = new DevExpress.XtraBars.BarButtonItem();
-            this.vDSKHOABindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLDSV_TCDataSet1 = new QLDSV_TC.QLDSV_TCDataSet1();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.qLDSV_TCDataSet = new QLDSV_TC.QLDSV_TCDataSet();
-            this.v_DS_KHOATableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.V_DS_KHOATableAdapter();
             this.mANVLabel = new System.Windows.Forms.Label();
             this.hOLabel = new System.Windows.Forms.Label();
             this.dIACHILabel = new System.Windows.Forms.Label();
@@ -77,8 +74,6 @@ namespace QLDSV_TC
             this.colSOTIET_LT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOTIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSKHOABindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bds)).BeginInit();
@@ -301,16 +296,6 @@ namespace QLDSV_TC
             this.btnChuyenCN.Name = "btnChuyenCN";
             this.btnChuyenCN.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // vDSKHOABindingSource
-            // 
-            this.vDSKHOABindingSource.DataMember = "V_DS_KHOA";
-            this.vDSKHOABindingSource.DataSource = this.qLDSV_TCDataSet1;
-            // 
-            // qLDSV_TCDataSet1
-            // 
-            this.qLDSV_TCDataSet1.DataSetName = "QLDSV_TCDataSet1";
-            this.qLDSV_TCDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // barButtonItem9
             // 
             this.barButtonItem9.Name = "barButtonItem9";
@@ -319,10 +304,6 @@ namespace QLDSV_TC
             // 
             this.qLDSV_TCDataSet.DataSetName = "QLDSV_TCDataSet";
             this.qLDSV_TCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // v_DS_KHOATableAdapter
-            // 
-            this.v_DS_KHOATableAdapter.ClearBeforeFill = true;
             // 
             // mANVLabel
             // 
@@ -505,8 +486,6 @@ namespace QLDSV_TC
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSKHOABindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_TCDataSet)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -544,9 +523,6 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.BarButtonItem btnDK;
         private DevExpress.XtraBars.BarButtonItem btnChuyenCN;
         private QLDSV_TCDataSet qLDSV_TCDataSet;
-        private QLDSV_TCDataSet1 qLDSV_TCDataSet1;
-        private System.Windows.Forms.BindingSource vDSKHOABindingSource;
-        private QLDSV_TCDataSet1TableAdapters.V_DS_KHOATableAdapter v_DS_KHOATableAdapter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label dIACHILabel;
         private System.Windows.Forms.Label hOLabel;

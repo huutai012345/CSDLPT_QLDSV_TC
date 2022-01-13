@@ -27,11 +27,11 @@ namespace QLDSV_TC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLopTC));
             System.Windows.Forms.Label nIENKHOALabel;
             System.Windows.Forms.Label hOCKYLabel;
             System.Windows.Forms.Label nHOMLabel;
             System.Windows.Forms.Label sOSVTOITHIEULabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLopTC));
             this.tENCNLabel = new System.Windows.Forms.Label();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -65,17 +65,9 @@ namespace QLDSV_TC
             this.tableAdapterManager = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.TableAdapterManager();
             this.v_DS_KHOATableAdapter = new QLDSV_TC.QLDSV_TCDataSet1TableAdapters.V_DS_KHOATableAdapter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbNK = new System.Windows.Forms.ComboBox();
-            this.cmbHK = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbMaGiangVien = new System.Windows.Forms.ComboBox();
             this.vDSGIANGVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cmbMaMonHoc = new System.Windows.Forms.ComboBox();
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtSLSVTT = new System.Windows.Forms.TextBox();
             this.bds = new System.Windows.Forms.BindingSource(this.components);
-            this.txtNhom = new System.Windows.Forms.TextBox();
             this.tableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.LOPTINCHITableAdapter();
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -90,6 +82,14 @@ namespace QLDSV_TC
             this.colHUYLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mONHOCTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter();
             this.v_DS_GIANGVIENTableAdapter = new QLDSV_TC.QLDSV_TCDataSetTableAdapters.V_DS_GIANGVIENTableAdapter();
+            this.txtNhom = new System.Windows.Forms.TextBox();
+            this.txtSLSVTT = new System.Windows.Forms.TextBox();
+            this.cmbMaMonHoc = new System.Windows.Forms.ComboBox();
+            this.cmbMaGiangVien = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbHK = new System.Windows.Forms.ComboBox();
+            this.cmbNK = new System.Windows.Forms.ComboBox();
             nIENKHOALabel = new System.Windows.Forms.Label();
             hOCKYLabel = new System.Windows.Forms.Label();
             nHOMLabel = new System.Windows.Forms.Label();
@@ -106,42 +106,6 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // nIENKHOALabel
-            // 
-            nIENKHOALabel.AutoSize = true;
-            nIENKHOALabel.Location = new System.Drawing.Point(455, 78);
-            nIENKHOALabel.Name = "nIENKHOALabel";
-            nIENKHOALabel.Size = new System.Drawing.Size(75, 17);
-            nIENKHOALabel.TabIndex = 38;
-            nIENKHOALabel.Text = "Niên Khóa:";
-            // 
-            // hOCKYLabel
-            // 
-            hOCKYLabel.AutoSize = true;
-            hOCKYLabel.Location = new System.Drawing.Point(785, 35);
-            hOCKYLabel.Name = "hOCKYLabel";
-            hOCKYLabel.Size = new System.Drawing.Size(58, 17);
-            hOCKYLabel.TabIndex = 39;
-            hOCKYLabel.Text = "Học Kỳ:";
-            // 
-            // nHOMLabel
-            // 
-            nHOMLabel.AutoSize = true;
-            nHOMLabel.Location = new System.Drawing.Point(785, 78);
-            nHOMLabel.Name = "nHOMLabel";
-            nHOMLabel.Size = new System.Drawing.Size(47, 17);
-            nHOMLabel.TabIndex = 40;
-            nHOMLabel.Text = "Nhóm:";
-            // 
-            // sOSVTOITHIEULabel
-            // 
-            sOSVTOITHIEULabel.AutoSize = true;
-            sOSVTOITHIEULabel.Location = new System.Drawing.Point(455, 35);
-            sOSVTOITHIEULabel.Name = "sOSVTOITHIEULabel";
-            sOSVTOITHIEULabel.Size = new System.Drawing.Size(109, 17);
-            sOSVTOITHIEULabel.TabIndex = 41;
-            sOSVTOITHIEULabel.Text = "Số SV Tối Thiểu:";
             // 
             // tENCNLabel
             // 
@@ -460,118 +424,20 @@ namespace QLDSV_TC
             this.groupBox1.TabIndex = 1001;
             this.groupBox1.TabStop = false;
             // 
-            // cmbNK
-            // 
-            this.cmbNK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNK.FormattingEnabled = true;
-            this.cmbNK.Items.AddRange(new object[] {
-            "2012-2013",
-            "2013-2014",
-            "2014-2015",
-            "2015-2016",
-            "2016-2017",
-            "2017-2018",
-            "2018-2019",
-            "2019-2020",
-            "2020-2021",
-            "2021-2022",
-            "2022-2023"});
-            this.cmbNK.Location = new System.Drawing.Point(570, 75);
-            this.cmbNK.Name = "cmbNK";
-            this.cmbNK.Size = new System.Drawing.Size(132, 25);
-            this.cmbNK.TabIndex = 48;
-            this.cmbNK.SelectedIndexChanged += new System.EventHandler(this.cmbNK_SelectedIndexChanged);
-            // 
-            // cmbHK
-            // 
-            this.cmbHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbHK.FormattingEnabled = true;
-            this.cmbHK.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cmbHK.Location = new System.Drawing.Point(855, 30);
-            this.cmbHK.Name = "cmbHK";
-            this.cmbHK.Size = new System.Drawing.Size(132, 25);
-            this.cmbHK.TabIndex = 47;
-            this.cmbHK.SelectedIndexChanged += new System.EventHandler(this.cmbHK_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 78);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Mã Giảng Viên:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 17);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Mã Môn Học:";
-            // 
-            // cmbMaGiangVien
-            // 
-            this.cmbMaGiangVien.DataSource = this.vDSGIANGVIENBindingSource;
-            this.cmbMaGiangVien.DisplayMember = "TEN";
-            this.cmbMaGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMaGiangVien.FormattingEnabled = true;
-            this.cmbMaGiangVien.Location = new System.Drawing.Point(137, 75);
-            this.cmbMaGiangVien.Name = "cmbMaGiangVien";
-            this.cmbMaGiangVien.Size = new System.Drawing.Size(247, 25);
-            this.cmbMaGiangVien.TabIndex = 40;
-            this.cmbMaGiangVien.ValueMember = "MAGV";
-            this.cmbMaGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbMaGiangVien_SelectedIndexChanged);
-            // 
             // vDSGIANGVIENBindingSource
             // 
             this.vDSGIANGVIENBindingSource.DataMember = "V_DS_GIANGVIEN";
             this.vDSGIANGVIENBindingSource.DataSource = this.qLDSV_TCDataSet;
-            // 
-            // cmbMaMonHoc
-            // 
-            this.cmbMaMonHoc.DataSource = this.mONHOCBindingSource;
-            this.cmbMaMonHoc.DisplayMember = "TENMH";
-            this.cmbMaMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMaMonHoc.FormattingEnabled = true;
-            this.cmbMaMonHoc.Location = new System.Drawing.Point(137, 32);
-            this.cmbMaMonHoc.Name = "cmbMaMonHoc";
-            this.cmbMaMonHoc.Size = new System.Drawing.Size(247, 25);
-            this.cmbMaMonHoc.TabIndex = 39;
-            this.cmbMaMonHoc.ValueMember = "MAMH";
-            this.cmbMaMonHoc.SelectedIndexChanged += new System.EventHandler(this.cmbMaMonHoc_SelectedIndexChanged);
             // 
             // mONHOCBindingSource
             // 
             this.mONHOCBindingSource.DataMember = "MONHOC";
             this.mONHOCBindingSource.DataSource = this.qLDSV_TCDataSet;
             // 
-            // txtSLSVTT
-            // 
-            this.txtSLSVTT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds, "SOSVTOITHIEU", true));
-            this.txtSLSVTT.Location = new System.Drawing.Point(570, 30);
-            this.txtSLSVTT.Name = "txtSLSVTT";
-            this.txtSLSVTT.Size = new System.Drawing.Size(132, 25);
-            this.txtSLSVTT.TabIndex = 41;
-            // 
             // bds
             // 
             this.bds.DataMember = "LOPTINCHI";
             this.bds.DataSource = this.qLDSV_TCDataSet;
-            // 
-            // txtNhom
-            // 
-            this.txtNhom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds, "NHOM", true));
-            this.txtNhom.Location = new System.Drawing.Point(855, 75);
-            this.txtNhom.Name = "txtNhom";
-            this.txtNhom.Size = new System.Drawing.Size(132, 25);
-            this.txtNhom.TabIndex = 44;
             // 
             // tableAdapter
             // 
@@ -678,6 +544,140 @@ namespace QLDSV_TC
             // 
             this.v_DS_GIANGVIENTableAdapter.ClearBeforeFill = true;
             // 
+            // nIENKHOALabel
+            // 
+            nIENKHOALabel.AutoSize = true;
+            nIENKHOALabel.Location = new System.Drawing.Point(455, 78);
+            nIENKHOALabel.Name = "nIENKHOALabel";
+            nIENKHOALabel.Size = new System.Drawing.Size(75, 17);
+            nIENKHOALabel.TabIndex = 38;
+            nIENKHOALabel.Text = "Niên Khóa:";
+            // 
+            // hOCKYLabel
+            // 
+            hOCKYLabel.AutoSize = true;
+            hOCKYLabel.Location = new System.Drawing.Point(785, 35);
+            hOCKYLabel.Name = "hOCKYLabel";
+            hOCKYLabel.Size = new System.Drawing.Size(58, 17);
+            hOCKYLabel.TabIndex = 39;
+            hOCKYLabel.Text = "Học Kỳ:";
+            // 
+            // txtNhom
+            // 
+            this.txtNhom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds, "NHOM", true));
+            this.txtNhom.Location = new System.Drawing.Point(855, 75);
+            this.txtNhom.Name = "txtNhom";
+            this.txtNhom.Size = new System.Drawing.Size(132, 25);
+            this.txtNhom.TabIndex = 44;
+            // 
+            // nHOMLabel
+            // 
+            nHOMLabel.AutoSize = true;
+            nHOMLabel.Location = new System.Drawing.Point(785, 78);
+            nHOMLabel.Name = "nHOMLabel";
+            nHOMLabel.Size = new System.Drawing.Size(47, 17);
+            nHOMLabel.TabIndex = 40;
+            nHOMLabel.Text = "Nhóm:";
+            // 
+            // txtSLSVTT
+            // 
+            this.txtSLSVTT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bds, "SOSVTOITHIEU", true));
+            this.txtSLSVTT.Location = new System.Drawing.Point(570, 30);
+            this.txtSLSVTT.Name = "txtSLSVTT";
+            this.txtSLSVTT.Size = new System.Drawing.Size(132, 25);
+            this.txtSLSVTT.TabIndex = 41;
+            // 
+            // sOSVTOITHIEULabel
+            // 
+            sOSVTOITHIEULabel.AutoSize = true;
+            sOSVTOITHIEULabel.Location = new System.Drawing.Point(455, 35);
+            sOSVTOITHIEULabel.Name = "sOSVTOITHIEULabel";
+            sOSVTOITHIEULabel.Size = new System.Drawing.Size(109, 17);
+            sOSVTOITHIEULabel.TabIndex = 41;
+            sOSVTOITHIEULabel.Text = "Số SV Tối Thiểu:";
+            // 
+            // cmbMaMonHoc
+            // 
+            this.cmbMaMonHoc.DataSource = this.mONHOCBindingSource;
+            this.cmbMaMonHoc.DisplayMember = "TENMH";
+            this.cmbMaMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaMonHoc.FormattingEnabled = true;
+            this.cmbMaMonHoc.Location = new System.Drawing.Point(137, 32);
+            this.cmbMaMonHoc.Name = "cmbMaMonHoc";
+            this.cmbMaMonHoc.Size = new System.Drawing.Size(247, 25);
+            this.cmbMaMonHoc.TabIndex = 39;
+            this.cmbMaMonHoc.ValueMember = "MAMH";
+            this.cmbMaMonHoc.SelectedIndexChanged += new System.EventHandler(this.cmbMaMonHoc_SelectedIndexChanged);
+            // 
+            // cmbMaGiangVien
+            // 
+            this.cmbMaGiangVien.DataSource = this.vDSGIANGVIENBindingSource;
+            this.cmbMaGiangVien.DisplayMember = "TEN";
+            this.cmbMaGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMaGiangVien.FormattingEnabled = true;
+            this.cmbMaGiangVien.Location = new System.Drawing.Point(137, 75);
+            this.cmbMaGiangVien.Name = "cmbMaGiangVien";
+            this.cmbMaGiangVien.Size = new System.Drawing.Size(247, 25);
+            this.cmbMaGiangVien.TabIndex = 40;
+            this.cmbMaGiangVien.ValueMember = "MAGV";
+            this.cmbMaGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbMaGiangVien_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 17);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Mã Môn Học:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 78);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 17);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Mã Giảng Viên:";
+            // 
+            // cmbHK
+            // 
+            this.cmbHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHK.FormattingEnabled = true;
+            this.cmbHK.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cmbHK.Location = new System.Drawing.Point(855, 30);
+            this.cmbHK.Name = "cmbHK";
+            this.cmbHK.Size = new System.Drawing.Size(132, 25);
+            this.cmbHK.TabIndex = 47;
+            this.cmbHK.SelectedIndexChanged += new System.EventHandler(this.cmbHK_SelectedIndexChanged);
+            // 
+            // cmbNK
+            // 
+            this.cmbNK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNK.FormattingEnabled = true;
+            this.cmbNK.Items.AddRange(new object[] {
+            "2012-2013",
+            "2013-2014",
+            "2014-2015",
+            "2015-2016",
+            "2016-2017",
+            "2017-2018",
+            "2018-2019",
+            "2019-2020",
+            "2020-2021",
+            "2021-2022",
+            "2022-2023"});
+            this.cmbNK.Location = new System.Drawing.Point(570, 75);
+            this.cmbNK.Name = "cmbNK";
+            this.cmbNK.Size = new System.Drawing.Size(132, 25);
+            this.cmbNK.TabIndex = 48;
+            this.cmbNK.SelectedIndexChanged += new System.EventHandler(this.cmbNK_SelectedIndexChanged);
+            // 
             // FormLopTC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -763,18 +763,18 @@ namespace QLDSV_TC
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colSOSVTOITHIEU;
         private DevExpress.XtraGrid.Columns.GridColumn colHUYLOP;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbMaGiangVien;
-        private System.Windows.Forms.ComboBox cmbMaMonHoc;
-        private System.Windows.Forms.TextBox txtSLSVTT;
         private System.Windows.Forms.BindingSource mONHOCBindingSource;
         private QLDSV_TCDataSetTableAdapters.MONHOCTableAdapter mONHOCTableAdapter;
         private System.Windows.Forms.BindingSource vDSGIANGVIENBindingSource;
         private QLDSV_TCDataSetTableAdapters.V_DS_GIANGVIENTableAdapter v_DS_GIANGVIENTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnCancelLop;
-        private System.Windows.Forms.ComboBox cmbHK;
-        private System.Windows.Forms.TextBox txtNhom;
         private System.Windows.Forms.ComboBox cmbNK;
+        private System.Windows.Forms.ComboBox cmbHK;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbMaGiangVien;
+        private System.Windows.Forms.ComboBox cmbMaMonHoc;
+        private System.Windows.Forms.TextBox txtSLSVTT;
+        private System.Windows.Forms.TextBox txtNhom;
     }
 }

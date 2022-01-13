@@ -14,6 +14,8 @@ namespace QLDSV_TC
     public partial class FormDangKi : Form
     {
         private string maSV;
+        private string NK;
+        private int HK;
 
         public FormDangKi()
         {
@@ -109,19 +111,33 @@ namespace QLDSV_TC
 
         private void fillToolStripButton_Click(object sender, EventArgs e)
         {
+            this.NK = cmbNK.Text;
+            this.HK = int.Parse(cmbHK.Text);
+
             gcDK.DataSource = Utils.getListLTCDK(this.maSV, cmbNK.Text, int.Parse(cmbHK.Text),false);
             gcDADK.DataSource = Utils.getListLTCDK(this.maSV, cmbNK.Text, int.Parse(cmbHK.Text), true);
         }
 
-        private void gridView1_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void gvDK_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (e.Column == gvDK.Columns["DANGKY"])
+            bool value = bool.Parse(gvDK.GetRowCellValue(e.RowHandle, "DANGKY").ToString());
+            if (e.Column == gvDK.Columns["DANGKY"] && value)
             {
-                btnSave.Enabled = true;
+                string maMH = gvDK.GetRowCellValue(e.RowHandle, "MAMH").ToString();
+                int maLTC = int.Parse(gvDK.GetRowCellValue(e.RowHandle, "MALTC").ToString());
+                if (!Utils.checkDKLopTC(maLTC, this.NK, this.HK, maMH, this.maSV))
+                {
+                    gvDK.SetRowCellValue(e.RowHandle, "DANGKY", 0);
+                    MessageBox.Show("Không thể đăng kí môn học này");
+                }
+                else
+                {
+                    btnSave.Enabled = true;
+                }
             }
         }
 
-        private void gvDADK_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void gvDADK_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             if (e.Column == gvDADK.Columns["DANGKY"])
             {

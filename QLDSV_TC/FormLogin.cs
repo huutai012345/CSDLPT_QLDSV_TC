@@ -82,6 +82,11 @@ namespace QLDSV_TC
             {
                 Program.fmMain.Show();
             }
+            else if (Program.mGroup == Program.nhomQuyen[3])
+            {
+                FormHocPhi f = new FormHocPhi();
+                f.Show();
+            }
         }
 
         private void fmDangNhap_Load(object sender, EventArgs e)

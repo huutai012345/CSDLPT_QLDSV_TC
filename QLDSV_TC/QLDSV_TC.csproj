@@ -87,6 +87,12 @@
     <Compile Include="FormDiem.Designer.cs">
       <DependentUpon>FormDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHocPhi.Designer.cs">
+      <DependentUpon>FormHocPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QLDSV_TCDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Validate\Library.cs" />
     <Compile Include="Validate\ValidateLogin.cs" />
@@ -156,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDiem.resx">
       <DependentUpon>FormDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHocPhi.resx">
+      <DependentUpon>FormHocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -220,6 +234,17 @@
     <Content Include="Resources\edit.png" />
     <Content Include="Resources\exit.png" />
     <Content Include="Resources\fm.png" />
+    <None Include="QLDSV_TCDataSet2.xsc">
+      <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="QLDSV_TCDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLDSV_TCDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLDSV_TCDataSet2.xss">
+      <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Icon1.ico" />
     <Content Include="Resources\icons8_business_report.ico" />
     <Content Include="Resources\icons8_cancel_9.ico" />

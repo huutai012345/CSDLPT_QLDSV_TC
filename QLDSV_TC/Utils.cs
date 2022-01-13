@@ -251,5 +251,43 @@ namespace QLDSV_TC
                 return false;
             }
         }
+
+        public static bool checkDKLopTC(int maLopTC,string NK,int HK,string maMH,string maSV)
+        {
+            String strLenh = "DECLARE @return_value int " +
+                "EXEC @return_value = [dbo].[SP_CHECK_DANGKYLOPTC] @MALTC =" + maLopTC + ", @HK ="+HK+", @NK =N'"+NK+"', @MAMH =N'"+maMH+"', @MASV =N'"+maSV+"' " +
+                "SELECT 'Return Value' = @return_value";
+
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            if (Program.myReader != null)
+            {
+                int returnValue = 0;
+                if (Program.myReader.Read())
+                {
+                    returnValue = Program.myReader.GetInt32(0);
+                }
+
+                Program.myReader.Close();
+                if (returnValue == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            return false;
+        }
+
+        public static bool addHocPhi(string maSV, string NK, int HK, float hocPhi)
+        {
+            Program.ExecSqlDataReader("INSERT INTO HOCPHI (MASV,NIENKHOA,HOCKI,HOCPHI) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", "+ hocPhi);
+            if (Program.myReader != null)
+            {
+                Program.myReader.Close();
+                return true;
+            }
+
+            return false;
+        }
     }
 }
