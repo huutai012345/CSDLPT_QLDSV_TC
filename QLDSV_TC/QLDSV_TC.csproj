@@ -156,6 +156,8 @@
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Validate\Library.cs" />
+    <Compile Include="Validate\ValidateCTDHP.cs" />
+    <Compile Include="Validate\ValidateHocPhi.cs" />
     <Compile Include="Validate\ValidateLogin.cs" />
     <Compile Include="Validate\ValidateDiem.cs" />
     <Compile Include="Validate\ValidateSinhVien.cs" />

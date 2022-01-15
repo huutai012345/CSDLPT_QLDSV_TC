@@ -31,7 +31,7 @@ namespace QLDSV_TC.Validate
             return false;
         }
 
-        public static bool isRightFloat(TextBox txt, float value)
+        public static bool isFloat(TextBox txt, float value)
         {
             if (float.Parse(txt.Text.ToString().Trim().Replace(",", "")) < value)
             {
@@ -40,7 +40,7 @@ namespace QLDSV_TC.Validate
             return true;
         }
 
-        public static bool isRightInt(TextBox txt, int value)
+        public static bool isInt(TextBox txt, int value)
         {
             if (int.Parse(txt.Text.ToString().Trim()) < value)
             {

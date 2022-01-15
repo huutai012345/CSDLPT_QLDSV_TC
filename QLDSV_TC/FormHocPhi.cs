@@ -14,13 +14,19 @@ namespace QLDSV_TC
     public partial class FormHocPhi : Form
     {
         private string maSV;
+        private string NK;
+        private int HK;
 
         public FormHocPhi()
         {
             InitializeComponent();
             gvHP.OptionsBehavior.Editable = false;
             gvCTDHP.OptionsBehavior.Editable = false;
+            gcCTDHP.Enabled = false;
+
             this.panel1.Enabled = false;
+            this.panel2.Visible = false;
+            this.bar1.Visible = false;
 
             this.confrimMode();
         }
@@ -33,8 +39,8 @@ namespace QLDSV_TC
 
         private void modifyMode()
         {
-            //gcDSHP.Enabled = false;
-            cmbHK.Enabled = cmbNK.Enabled = true;
+            gcDSHP.Enabled = false;
+            cmbHK.Enabled = cmbNK.Enabled =txtHocPhi.Enabled = true;
 
             btnSave.Enabled = btnCancel.Enabled = true;
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled
@@ -43,8 +49,8 @@ namespace QLDSV_TC
 
         private void confrimMode()
         {
-           // gcDSHP.Enabled = false;
-            cmbHK.Enabled = cmbNK.Enabled = false;
+            gcDSHP.Enabled = true;
+            cmbHK.Enabled = cmbNK.Enabled = txtHocPhi.Enabled = false;
 
             btnSave.Enabled = btnCancel.Enabled = false;
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled
@@ -53,7 +59,8 @@ namespace QLDSV_TC
 
         private void refesh()
         {
-           // this.tableAdapter.Fill(this.qLDSV_TCDataSet.MONHOC);
+           this.hocPhiTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_HOCPHI,this.maSV);
+            gcCTDHP.Enabled = false;
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -65,21 +72,26 @@ namespace QLDSV_TC
 
         private void btnSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
+            if (!ValidateHocPhi.validate(txtHocPhi))
+            {
+                return;
+            }
+
+            if (Utils.addHocPhi(this.maSV, cmbNK.Text, int.Parse(cmbHK.Text), int.Parse(txtHocPhi.Text)))
             {
                 MessageBox.Show("Ghi thành công", "THÔNG BÁO", MessageBoxButtons.OK);
                 this.confrimMode();
                 this.refesh();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Mă hoặc tên môn học đã tồn tại", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show("Học phí đã tồn tại", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
 
         private void btnCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //bds.RemoveCurrent();
+            bdsHP.RemoveCurrent();
             this.confrimMode();
         }
 
@@ -87,7 +99,6 @@ namespace QLDSV_TC
         {
             this.Close();
         }
-
 
         private void btnRefesh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -100,7 +111,20 @@ namespace QLDSV_TC
             {
                 this.maSV = txtMaSV.Text;
                 this.panel1.Enabled = true;
+                this.bar1.Visible = true;
+
                 this.hocPhiTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_HOCPHI, txtMaSV.Text);
+                if (gvHP.RowCount > 0)
+                {
+                    this.NK = gvHP.GetRowCellValue(0, "NIENKHOA").ToString();
+                    this.HK = int.Parse(gvHP.GetRowCellValue(0, "HOCKY").ToString());
+
+                    cmbHK.SelectedIndex = cmbHK.FindStringExact(this.HK.ToString());
+                    cmbNK.SelectedIndex = cmbNK.FindStringExact(this.NK);
+
+                    gcCTDHP.Enabled = true;
+                    gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
+                }
             }
             catch (System.Exception ex)
             {
@@ -115,24 +139,77 @@ namespace QLDSV_TC
             {
                 try
                 {
-                    string NK = gvHP.GetRowCellValue(selectedRowHandles[0], "NIENKHOA").ToString();
-                    int HK = int.Parse(gvHP.GetRowCellValue(selectedRowHandles[0], "HOCKY").ToString());
+                    this.NK = gvHP.GetRowCellValue(selectedRowHandles[0], "NIENKHOA").ToString();
+                    this.HK = int.Parse(gvHP.GetRowCellValue(selectedRowHandles[0], "HOCKY").ToString());
 
-                    cmbHK.SelectedIndex = cmbHK.FindStringExact(HK.ToString());
-                    cmbNK.SelectedIndex = cmbNK.FindStringExact(NK);
+                    cmbHK.SelectedIndex = cmbHK.FindStringExact(this.HK.ToString());
+                    cmbNK.SelectedIndex = cmbNK.FindStringExact(this.NK);
 
-                    this.cDHPTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_CTDHP, this.maSV, NK, HK);
+                    gcCTDHP.Enabled = true;
+                    gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
                 }
                 catch (System.Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddCTDHP_Click(object sender, EventArgs e)
         {
-            bdsCTDHP.AddNew();
+            panel2.Visible = true;
+            this.gcDSHP.Enabled = false;
+            this.bar1.Visible = false;
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            this.gcDSHP.Enabled = true;
+            this.bar1.Visible = true;
+        }
+
+        private void btnSaveCTHP_Click(object sender, EventArgs e)
+        {
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("MASV", typeof(string));
+            //dt.Columns.Add("NIENKHOA", typeof(string));
+            //dt.Columns.Add("HOCKY", typeof(int));
+            //dt.Columns.Add("NGAYDONG", typeof(string));
+            //dt.Columns.Add("SOTIENDONG", typeof(int));
+
+            //for (int i = 0; i < gvCTDHP.RowCount; i++)
+            //{
+            //    string ngayDong = gvCTDHP.GetRowCellValue(i, "NGAYDONG").ToString().Trim();
+            //    int soTienDong = int.Parse(gvCTDHP.GetRowCellValue(i, "SOTIENDONG").ToString().Trim());
+
+            //    dt.Rows.Add(this.maSV, this.NK, this.HK, ngayDong,soTienDong);
+            //}
+
+            //if (dt.Rows.Count > 0)
+            //{
+            //    Utils.updateHocPhi(dt);
+            //}
+            if (!ValidateCTDHP.validate(txtSoTienDong))
+            {
+                return;
+            }
+
+            if (Utils.checkAddCTDHP(this.NK, this.HK, this.maSV, txtNgayDong.Text,int.Parse(txtHocPhi.Text)))
+            {
+                Utils.addCTHP(this.maSV, this.NK, this.HK, int.Parse(txtSoTienDong.Text), txtNgayDong.Text);
+                MessageBox.Show("Ghi thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
+                gcCTDHP.Enabled = false;
+
+                panel2.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Chi tiết đóng học phí tồn tại hoặc số tiền học phí đã đủ", "THÔNG BÁO", MessageBoxButtons.OK);
+            }
+        }
+
+       
     }
 }

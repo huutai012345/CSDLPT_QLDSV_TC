@@ -278,9 +278,81 @@ namespace QLDSV_TC
             return false;
         }
 
-        public static bool addHocPhi(string maSV, string NK, int HK, float hocPhi)
+        public static bool checkAddHocPhi(string NK, int HK, string maSV)
         {
-            Program.ExecSqlDataReader("INSERT INTO HOCPHI (MASV,NIENKHOA,HOCKI,HOCPHI) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", "+ hocPhi);
+            String strLenh = "DECLARE @return_value int " +
+                "EXEC @return_value = [dbo].[SP_CHECK_ADD_HOCPHI] @HK =" + HK + ", @NK =N'" + NK + "', @MASV =N'" + maSV + "' " +
+                "SELECT 'Return Value' = @return_value";
+
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            if (Program.myReader != null)
+            {
+                int returnValue = 0;
+                if (Program.myReader.Read())
+                {
+                    returnValue = Program.myReader.GetInt32(0);
+                }
+
+                Program.myReader.Close();
+                if (returnValue == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            return false;
+        }
+
+        public static bool addHocPhi(string maSV, string NK, int HK, int hocPhi)
+        {
+            if (checkAddHocPhi(NK, HK, maSV))
+            {
+                Program.ExecSqlDataReader("INSERT INTO HOCPHI (MASV,NIENKHOA,HOCKY,HOCPHI) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", " + hocPhi + " )");
+                if (Program.myReader != null)
+                {
+                    Program.myReader.Close();
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+
+        public static bool checkAddCTDHP(string NK, int HK, string maSV,string date,int soTienDong)
+        {
+            String strLenh = "DECLARE @return_value int " +
+                "EXEC @return_value = [dbo].[SP_CHECK_ADD_CTDHP] @HK =" + HK + ", @NK =N'" + NK + "', @MASV =N'" + maSV + "', @NGAYDONG ='"+date+"', @SOTIENDONG= "+soTienDong+" "+
+                "SELECT 'Return Value' = @return_value";
+
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            if (Program.myReader != null)
+            {
+                int returnValue = 0;
+                if (Program.myReader.Read())
+                {
+                    returnValue = Program.myReader.GetInt32(0);
+                }
+
+                Program.myReader.Close();
+                if (returnValue == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            return false;
+        }
+
+        public static bool addCTHP(string maSV, string NK, int HK, int soTienDOng,string ngayDong)
+        {
+            Program.ExecSqlDataReader("INSERT INTO CT_DONGHOCPHI (MASV,NIENKHOA,HOCKY,NGAYDONG,SOTIENDONG) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", '" + ngayDong + "' ," + soTienDOng+")");
             if (Program.myReader != null)
             {
                 Program.myReader.Close();
@@ -288,6 +360,41 @@ namespace QLDSV_TC
             }
 
             return false;
+        }
+
+        public static void updateHocPhi(DataTable dt)
+        {
+            SqlParameter parameter = new SqlParameter();
+            parameter.SqlDbType = SqlDbType.Structured;
+            parameter.TypeName = "dbo.TYPE_CTHP";
+            parameter.ParameterName = "@HOCPHI";
+            parameter.Value = dt;
+
+            SqlCommand sqlcmd = new SqlCommand("SP_UPDATE_HOCPHI", Program.conn);
+            sqlcmd.Parameters.Clear();
+            sqlcmd.CommandType = CommandType.StoredProcedure;
+            sqlcmd.CommandTimeout = 600;
+            sqlcmd.Parameters.Add(parameter);
+
+            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+            try
+            {
+                sqlcmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                Program.conn.Close();
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static DataTable getCTHP(string maSV, string NK, int HK)
+        {
+            DataTable dt = new DataTable();
+            dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_CTDHP @MASV =N'" + maSV + "', @NK =N'" + NK + "', @HK= "+HK);
+
+            return dt;
         }
     }
 }
