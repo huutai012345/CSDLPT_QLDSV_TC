@@ -209,7 +209,7 @@ namespace QLDSV_TC
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 657);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 641);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlBottom.Size = new System.Drawing.Size(1062, 20);
@@ -221,7 +221,7 @@ namespace QLDSV_TC
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 58);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 599);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 583);
             // 
             // barDockControlRight
             // 
@@ -230,7 +230,7 @@ namespace QLDSV_TC
             this.barDockControlRight.Location = new System.Drawing.Point(1062, 58);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 599);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 583);
             // 
             // btnThoat
             // 
@@ -546,7 +546,7 @@ namespace QLDSV_TC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 677);
+            this.ClientSize = new System.Drawing.Size(1062, 661);
             this.Controls.Add(this.gcDSSV);
             this.Controls.Add(this.gcLTC);
             this.Controls.Add(this.fillToolStrip);

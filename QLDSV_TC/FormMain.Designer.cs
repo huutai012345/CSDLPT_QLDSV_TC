@@ -37,12 +37,9 @@ namespace QLDSV_TC
             this.btMonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.btnLopTinChi = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRPDSLTC = new DevExpress.XtraBars.BarButtonItem();
             this.dsvt = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnDiem = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,12 +69,9 @@ namespace QLDSV_TC
             this.btMonHoc,
             this.btnLopTinChi,
             this.btnLogout,
-            this.barButtonItem3,
+            this.btnRPDSLTC,
             this.dsvt,
-            this.barButtonItem4,
-            this.barButtonItem5,
             this.barButtonItem6,
-            this.barButtonItem7,
             this.btnDiem});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
@@ -136,43 +130,32 @@ namespace QLDSV_TC
             this.btnLogout.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
-            // barButtonItem3
+            // btnRPDSLTC
             // 
-            this.barButtonItem3.Caption = "Danh Sách Nhân Viên";
-            this.barButtonItem3.Id = 22;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.btnRPDSLTC.Caption = "Danh Sách Lớp Tín Chỉ";
+            this.btnRPDSLTC.Id = 22;
+            this.btnRPDSLTC.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.table;
+            this.btnRPDSLTC.Name = "btnRPDSLTC";
+            this.btnRPDSLTC.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnRPDSLTC.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRPDSLTC_ItemClick);
             // 
             // dsvt
             // 
-            this.dsvt.Caption = "Danh sách vật tư";
+            this.dsvt.Caption = "Danh Sách Sinh Viên Lớp Tín Chỉ";
             this.dsvt.Id = 23;
+            this.dsvt.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.table;
             this.dsvt.Name = "dsvt";
             this.dsvt.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "Chi tiết nhập xuất";
-            this.barButtonItem4.Id = 24;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "Hoạt Động Nhân Viên";
-            this.barButtonItem5.Id = 25;
-            this.barButtonItem5.Name = "barButtonItem5";
+            this.dsvt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.dsvt_ItemClick);
             // 
             // barButtonItem6
             // 
-            this.barButtonItem6.Caption = "Tổng Hợp Nhập Xuất";
+            this.barButtonItem6.Caption = "Bàng Điểm";
             this.barButtonItem6.Id = 26;
+            this.barButtonItem6.ImageOptions.Image = global::QLDSV_TC.Properties.Resources.table;
             this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "Đơn Đặt Hàng Chưa Có Phiếu";
-            this.barButtonItem7.Id = 27;
-            this.barButtonItem7.Name = "barButtonItem7";
+            this.barButtonItem6.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // btnDiem
             // 
@@ -208,11 +191,8 @@ namespace QLDSV_TC
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnRPDSLTC);
             this.ribbonPageGroup2.ItemLinks.Add(this.dsvt);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem7);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem6);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
@@ -293,14 +273,11 @@ namespace QLDSV_TC
         private DevExpress.XtraBars.BarButtonItem btMonHoc;
         private DevExpress.XtraBars.BarButtonItem btnLopTinChi;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btnRPDSLTC;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem dsvt;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem btnDiem;
     }
 }

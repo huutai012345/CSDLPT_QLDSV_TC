@@ -53,16 +53,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v20.1" />
+    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v20.1" />
     <Reference Include="DevExpress.Data.v20.1" />
+    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v20.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v20.1" />
+    <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v20.1" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v20.1" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -154,12 +168,49 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\FormRPBangDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormRPBangDiem.Designer.cs">
+      <DependentUpon>FormRPBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormRPDSSVLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormRPDSSVLTC.Designer.cs">
+      <DependentUpon>FormRPDSSVLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\FormRPDSLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormRPDSLTC.Designer.cs">
+      <DependentUpon>FormRPDSLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportBangDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportBangDiem.Designer.cs">
+      <DependentUpon>ReportBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportDSLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDSLTC.Designer.cs">
+      <DependentUpon>ReportDSLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportDSSVLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDSSVLTC.Designer.cs">
+      <DependentUpon>ReportDSSVLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Validate\Library.cs" />
     <Compile Include="Validate\ValidateCTDHP.cs" />
     <Compile Include="Validate\ValidateHocPhi.cs" />
     <Compile Include="Validate\ValidateLogin.cs" />
     <Compile Include="Validate\ValidateDiem.cs" />
+    <Compile Include="Validate\ValidateLopRP.cs" />
     <Compile Include="Validate\ValidateSinhVien.cs" />
     <Compile Include="Validate\ValidateLop.cs" />
     <Compile Include="Validate\ValidateLopTC.cs" />
@@ -196,6 +247,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormRPBangDiem.resx">
+      <DependentUpon>FormRPBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormRPDSSVLTC.resx">
+      <DependentUpon>FormRPDSSVLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormRPDSLTC.resx">
+      <DependentUpon>FormRPDSLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportBangDiem.resx">
+      <DependentUpon>ReportBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDSLTC.resx">
+      <DependentUpon>ReportDSLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDSSVLTC.resx">
+      <DependentUpon>ReportDSSVLTC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -234,7 +303,6 @@
     <Content Include="Resources\add-file.png" />
     <Content Include="Resources\delete.png" />
     <Content Include="Resources\edit.png" />
-    <Content Include="Resources\exit.png" />
     <Content Include="Resources\fm.png" />
     <None Include="QLDSV_TCDataSet2.xsc">
       <DependentUpon>QLDSV_TCDataSet2.xsd</DependentUpon>
@@ -251,12 +319,9 @@
     <Content Include="Resources\icons8_business_report.ico" />
     <Content Include="Resources\icons8_cancel_9.ico" />
     <None Include="Resources\icons8_close_pane_48.png" />
-    <Content Include="Resources\icons8_delete_bin.ico" />
     <Content Include="Resources\icons8_delete_bin_48.png" />
-    <Content Include="Resources\icons8_export.ico" />
     <Content Include="Resources\icons8_registration.ico" />
     <Content Include="Resources\icons8_topic_moved.ico" />
-    <None Include="Resources\Image1.bmp" />
     <None Include="Resources\icons8_unavailable_48.png" />
     <Content Include="Resources\list.png" />
     <Content Include="Resources\login.png" />
@@ -283,9 +348,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

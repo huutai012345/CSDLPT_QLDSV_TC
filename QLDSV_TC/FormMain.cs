@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLDSV_TC.Reports;
 
 namespace QLDSV_TC
 {
@@ -149,6 +150,51 @@ namespace QLDSV_TC
         {
             this.Hide();
             new FormLogin(Program.mlogin, Program.password).Show();
+        }
+
+        private void btnRPDSLTC_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form fm = this.CheckExists(typeof(FormDiem));
+            if (fm != null)
+            {
+                fm.Activate();
+            }
+            else
+            {
+                FormRPDSLTC f = new FormRPDSLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void dsvt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form fm = this.CheckExists(typeof(FormDiem));
+            if (fm != null)
+            {
+                fm.Activate();
+            }
+            else
+            {
+                FormRPDSSVLTC f = new FormRPDSSVLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form fm = this.CheckExists(typeof(FormDiem));
+            if (fm != null)
+            {
+                fm.Activate();
+            }
+            else
+            {
+                FormRPBangDiem f = new FormRPBangDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }
