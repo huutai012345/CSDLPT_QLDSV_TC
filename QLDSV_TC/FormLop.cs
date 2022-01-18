@@ -128,6 +128,12 @@ namespace QLDSV_TC
                 return;
             }
 
+            if (!Utils.checkAddLop(txtMaLop.Text, txtTenLop.Text))
+            {
+                MessageBox.Show("Mă hoặc tên lớp đã tồn tại", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+
             try
             {
                 this.updateTableAdapter();
@@ -137,7 +143,7 @@ namespace QLDSV_TC
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Mă hoặc tên lớp đã tồn tại", "THÔNG BÁO", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
 

@@ -82,7 +82,7 @@ namespace QLDSV_TC
             btnSave.Enabled = btnCancel.Enabled = false;
             btnAdd.Enabled = btnEdit.Enabled = btnDelete.Enabled
                 = btnRefesh.Enabled = btnUndo.Enabled = btnRedo.Enabled = btnClose.Enabled = true;
-            cmbKhoa.Enabled = false;
+            cmbKhoa.Enabled = true;
         }
 
         private void updateTableAdapter()

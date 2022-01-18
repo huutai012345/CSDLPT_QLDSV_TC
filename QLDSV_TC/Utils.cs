@@ -27,8 +27,9 @@ namespace QLDSV_TC
                 {
                     stt = int.Parse(Program.myReader.GetString(0)) + 1;
                     khoaHoc = Program.myReader.GetString(1);
-                    Program.myReader.Close();
                 }
+
+                Program.myReader.Close();
 
                 int lengOfNum = stt.ToString().Length;
                 for (int i = 0; i < 3 - lengOfNum; i++)
@@ -48,6 +49,7 @@ namespace QLDSV_TC
             }
             else
             {
+                Program.myReader.Close();
                 return "";
             }
 
@@ -218,10 +220,7 @@ namespace QLDSV_TC
 
         public static DataTable getListLTCDK(string maSV, string NK, int HK,bool DK)
         {
-            DataTable dt = new DataTable();
-            dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_LTC_DANGKY @MASV =N'" + maSV + "', @NK =N'"+ NK + "', @DANGKY = "+DK+", @HK="+ HK);
-           
-            return dt;
+            return Program.ExecSqlDataTable("EXEC SP_LAY_DS_LTC_DANGKY @MASV =N'" + maSV + "', @NK =N'"+ NK + "', @DANGKY = "+DK+", @HK="+ HK);
         }
 
         public static bool dangKy(DataTable dt)
@@ -320,7 +319,6 @@ namespace QLDSV_TC
             else
             {
                 return false;
-
             }
         }
 
@@ -352,49 +350,50 @@ namespace QLDSV_TC
 
         public static bool addCTHP(string maSV, string NK, int HK, int soTienDOng,string ngayDong)
         {
-            Program.ExecSqlDataReader("INSERT INTO CT_DONGHOCPHI (MASV,NIENKHOA,HOCKY,NGAYDONG,SOTIENDONG) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", '" + ngayDong + "' ," + soTienDOng+")");
-            if (Program.myReader != null)
+            if (checkAddCTDHP(NK, HK, maSV, ngayDong, soTienDOng))
             {
-                Program.myReader.Close();
-                return true;
+                Program.ExecSqlDataReader("INSERT INTO CT_DONGHOCPHI (MASV,NIENKHOA,HOCKY,NGAYDONG,SOTIENDONG) VALUES ('" + maSV + "', '" + NK + "', " + HK + ", '" + ngayDong + "' ," + soTienDOng + ")");
+                if (Program.myReader != null)
+                {
+                    Program.myReader.Close();
+                    return true;
+                }
+
+                return false;
             }
 
             return false;
         }
 
-        public static void updateHocPhi(DataTable dt)
-        {
-            SqlParameter parameter = new SqlParameter();
-            parameter.SqlDbType = SqlDbType.Structured;
-            parameter.TypeName = "dbo.TYPE_CTHP";
-            parameter.ParameterName = "@HOCPHI";
-            parameter.Value = dt;
-
-            SqlCommand sqlcmd = new SqlCommand("SP_UPDATE_HOCPHI", Program.conn);
-            sqlcmd.Parameters.Clear();
-            sqlcmd.CommandType = CommandType.StoredProcedure;
-            sqlcmd.CommandTimeout = 600;
-            sqlcmd.Parameters.Add(parameter);
-
-            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
-            try
-            {
-                sqlcmd.ExecuteNonQuery();
-
-            }
-            catch (SqlException ex)
-            {
-                Program.conn.Close();
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         public static DataTable getCTHP(string maSV, string NK, int HK)
         {
-            DataTable dt = new DataTable();
-            dt = Program.ExecSqlDataTable("EXEC SP_LAY_DS_CTDHP @MASV =N'" + maSV + "', @NK =N'" + NK + "', @HK= "+HK);
+            return Program.ExecSqlDataTable("EXEC SP_LAY_DS_CTDHP @MASV =N'" + maSV + "', @NK =N'" + NK + "', @HK= " + HK);
+        }
 
-            return dt;
+        public static bool checkAddLop(string maLop,string tenLop)
+        {
+            String strLenh = "DECLARE @return_value int " +
+                "EXEC @return_value = [dbo].[SP_CHECK_ADD_LOP] @MALOP =N'" + maLop + "', @TENLOP=N'"+tenLop+"' " +
+                "SELECT  'Return Value' = @return_value";
+
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            if (Program.myReader != null)
+            {
+                int returnValue = 0;
+                if (Program.myReader.Read())
+                {
+                    returnValue = Program.myReader.GetInt32(0);
+                }
+
+                Program.myReader.Close();
+                if (returnValue == 1)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            return false;
         }
     }
 }

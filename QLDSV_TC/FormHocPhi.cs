@@ -22,7 +22,6 @@ namespace QLDSV_TC
             InitializeComponent();
             gvHP.OptionsBehavior.Editable = false;
             gvCTDHP.OptionsBehavior.Editable = false;
-            gcCTDHP.Enabled = false;
 
             this.panel1.Enabled = false;
             this.panel2.Visible = false;
@@ -60,12 +59,12 @@ namespace QLDSV_TC
         private void refesh()
         {
            this.hocPhiTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_HOCPHI,this.maSV);
-            gcCTDHP.Enabled = false;
         }
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gvCTDHP.OptionsBehavior.Editable = true;
+            this.btnAddCTDHP.Enabled = false;
+
             this.modifyMode();
             bdsHP.AddNew();
         }
@@ -122,8 +121,7 @@ namespace QLDSV_TC
                     cmbHK.SelectedIndex = cmbHK.FindStringExact(this.HK.ToString());
                     cmbNK.SelectedIndex = cmbNK.FindStringExact(this.NK);
 
-                    gcCTDHP.Enabled = true;
-                    gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
+                    this.cTDHPTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_CTDHP, this.maSV, this.NK, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.HK, typeof(int))))));
                 }
             }
             catch (System.Exception ex)
@@ -145,8 +143,8 @@ namespace QLDSV_TC
                     cmbHK.SelectedIndex = cmbHK.FindStringExact(this.HK.ToString());
                     cmbNK.SelectedIndex = cmbNK.FindStringExact(this.NK);
 
-                    gcCTDHP.Enabled = true;
-                    gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
+                    this.btnAddCTDHP.Enabled = true;
+                    this.cTDHPTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_CTDHP, this.maSV, this.NK, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.HK, typeof(int))))));
                 }
                 catch (System.Exception ex)
                 {
@@ -160,6 +158,7 @@ namespace QLDSV_TC
             panel2.Visible = true;
             this.gcDSHP.Enabled = false;
             this.bar1.Visible = false;
+            this.btnAddCTDHP.Enabled = false;
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -167,49 +166,30 @@ namespace QLDSV_TC
             panel2.Visible = false;
             this.gcDSHP.Enabled = true;
             this.bar1.Visible = true;
+            this.btnAddCTDHP.Enabled = true;
         }
 
         private void btnSaveCTHP_Click(object sender, EventArgs e)
         {
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add("MASV", typeof(string));
-            //dt.Columns.Add("NIENKHOA", typeof(string));
-            //dt.Columns.Add("HOCKY", typeof(int));
-            //dt.Columns.Add("NGAYDONG", typeof(string));
-            //dt.Columns.Add("SOTIENDONG", typeof(int));
-
-            //for (int i = 0; i < gvCTDHP.RowCount; i++)
-            //{
-            //    string ngayDong = gvCTDHP.GetRowCellValue(i, "NGAYDONG").ToString().Trim();
-            //    int soTienDong = int.Parse(gvCTDHP.GetRowCellValue(i, "SOTIENDONG").ToString().Trim());
-
-            //    dt.Rows.Add(this.maSV, this.NK, this.HK, ngayDong,soTienDong);
-            //}
-
-            //if (dt.Rows.Count > 0)
-            //{
-            //    Utils.updateHocPhi(dt);
-            //}
             if (!ValidateCTDHP.validate(txtSoTienDong))
             {
                 return;
             }
 
-            if (Utils.checkAddCTDHP(this.NK, this.HK, this.maSV, txtNgayDong.Text,int.Parse(txtHocPhi.Text)))
+            if (Utils.addCTHP(this.maSV, this.NK, this.HK, int.Parse(txtSoTienDong.Text), txtNgayDong.Text))
             {
-                Utils.addCTHP(this.maSV, this.NK, this.HK, int.Parse(txtSoTienDong.Text), txtNgayDong.Text);
                 MessageBox.Show("Ghi thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-                gcCTDHP.DataSource = Utils.getCTHP(this.maSV, this.NK, this.HK);
-                gcCTDHP.Enabled = false;
 
+                this.cTDHPTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_CTDHP, this.maSV, this.NK, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.HK, typeof(int))))));
+
+                this.btnAddCTDHP.Enabled = true;
                 panel2.Visible = false;
+                gcDSHP.Enabled = true;
             }
             else
             {
                 MessageBox.Show("Chi tiết đóng học phí tồn tại hoặc số tiền học phí đã đủ", "THÔNG BÁO", MessageBoxButtons.OK);
             }
         }
-
-       
     }
 }

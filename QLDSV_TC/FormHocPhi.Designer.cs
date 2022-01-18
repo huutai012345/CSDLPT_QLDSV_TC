@@ -74,21 +74,23 @@ namespace QLDSV_TC
             this.colSOTIENCANDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOCPHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gcCTDHP = new DevExpress.XtraGrid.GridControl();
-            this.gvCTDHP = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colNGAYDONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIENDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNgayDong = new System.Windows.Forms.DateTimePicker();
+            this.txtSoTienDong = new System.Windows.Forms.TextBox();
             this.btnSaveCTHP = new System.Windows.Forms.Button();
             this.txtHocPhi = new System.Windows.Forms.TextBox();
             this.btnAddCTDHP = new System.Windows.Forms.Button();
             this.cmbNK = new System.Windows.Forms.ComboBox();
             this.cmbHK = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtSoTienDong = new System.Windows.Forms.TextBox();
-            this.txtNgayDong = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.bdsCTDHP = new System.Windows.Forms.BindingSource(this.components);
+            this.cTDHPTableAdapter = new QLDSV_TC.QLDSV_TCDataSet2TableAdapters.SP_LAY_DS_CTDHPTableAdapter();
+            this.sP_LAY_DS_CTDHPGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gvCTDHP = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colNGAYDONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTIENDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             hOCKYLabel = new System.Windows.Forms.Label();
             nIENKHOALabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -101,10 +103,11 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gcDSHP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHP)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcCTDHP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).BeginInit();
             this.SuspendLayout();
             // 
             // hOCKYLabel
@@ -133,6 +136,24 @@ namespace QLDSV_TC
             label1.Size = new System.Drawing.Size(56, 17);
             label1.TabIndex = 50;
             label1.Text = "Học Phí";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(6, 60);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(91, 17);
+            label2.TabIndex = 54;
+            label2.Text = "Số Tiền Đóng:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(6, 24);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(79, 17);
+            label3.TabIndex = 56;
+            label3.Text = "Ngày Đóng:";
             // 
             // barManager1
             // 
@@ -465,47 +486,13 @@ namespace QLDSV_TC
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.gcCTDHP);
+            this.panel1.Controls.Add(this.sP_LAY_DS_CTDHPGridControl);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 320);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 314);
             this.panel1.TabIndex = 1012;
-            // 
-            // gcCTDHP
-            // 
-            this.gcCTDHP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcCTDHP.Location = new System.Drawing.Point(306, 0);
-            this.gcCTDHP.MainView = this.gvCTDHP;
-            this.gcCTDHP.MenuManager = this.barManager1;
-            this.gcCTDHP.Name = "gcCTDHP";
-            this.gcCTDHP.Size = new System.Drawing.Size(756, 311);
-            this.gcCTDHP.TabIndex = 1014;
-            this.gcCTDHP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvCTDHP});
-            // 
-            // gvCTDHP
-            // 
-            this.gvCTDHP.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colNGAYDONG,
-            this.colSOTIENDONG});
-            this.gvCTDHP.GridControl = this.gcCTDHP;
-            this.gvCTDHP.Name = "gvCTDHP";
-            // 
-            // colNGAYDONG
-            // 
-            this.colNGAYDONG.FieldName = "NGAYDONG";
-            this.colNGAYDONG.Name = "colNGAYDONG";
-            this.colNGAYDONG.Visible = true;
-            this.colNGAYDONG.VisibleIndex = 0;
-            // 
-            // colSOTIENDONG
-            // 
-            this.colSOTIENDONG.FieldName = "SOTIENDONG";
-            this.colSOTIENDONG.Name = "colSOTIENDONG";
-            this.colSOTIENDONG.Visible = true;
-            this.colSOTIENDONG.VisibleIndex = 1;
             // 
             // groupBox2
             // 
@@ -523,6 +510,55 @@ namespace QLDSV_TC
             this.groupBox2.Size = new System.Drawing.Size(306, 314);
             this.groupBox2.TabIndex = 1013;
             this.groupBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonCancel);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(label3);
+            this.panel2.Controls.Add(label2);
+            this.panel2.Controls.Add(this.txtNgayDong);
+            this.panel2.Controls.Add(this.txtSoTienDong);
+            this.panel2.Controls.Add(this.btnSaveCTHP);
+            this.panel2.Location = new System.Drawing.Point(6, 151);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(294, 145);
+            this.panel2.TabIndex = 53;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(151, 102);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(90, 30);
+            this.buttonCancel.TabIndex = 58;
+            this.buttonCancel.Text = "Hủy";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(238, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 17);
+            this.label4.TabIndex = 57;
+            this.label4.Text = "VNĐ";
+            // 
+            // txtNgayDong
+            // 
+            this.txtNgayDong.Location = new System.Drawing.Point(103, 18);
+            this.txtNgayDong.Name = "txtNgayDong";
+            this.txtNgayDong.Size = new System.Drawing.Size(176, 25);
+            this.txtNgayDong.TabIndex = 55;
+            // 
+            // txtSoTienDong
+            // 
+            this.txtSoTienDong.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsHP, "HOCPHI", true));
+            this.txtSoTienDong.Location = new System.Drawing.Point(103, 57);
+            this.txtSoTienDong.Name = "txtSoTienDong";
+            this.txtSoTienDong.Size = new System.Drawing.Size(123, 25);
+            this.txtSoTienDong.TabIndex = 54;
             // 
             // btnSaveCTHP
             // 
@@ -588,72 +624,49 @@ namespace QLDSV_TC
             this.cmbHK.Size = new System.Drawing.Size(132, 25);
             this.cmbHK.TabIndex = 47;
             // 
-            // panel2
+            // bdsCTDHP
             // 
-            this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(label3);
-            this.panel2.Controls.Add(label2);
-            this.panel2.Controls.Add(this.txtNgayDong);
-            this.panel2.Controls.Add(this.txtSoTienDong);
-            this.panel2.Controls.Add(this.btnSaveCTHP);
-            this.panel2.Location = new System.Drawing.Point(6, 151);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(294, 145);
-            this.panel2.TabIndex = 53;
+            this.bdsCTDHP.DataMember = "SP_LAY_DS_CTDHP";
+            this.bdsCTDHP.DataSource = this.qLDSV_TCDataSet2;
             // 
-            // txtSoTienDong
+            // cTDHPTableAdapter
             // 
-            this.txtSoTienDong.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsHP, "HOCPHI", true));
-            this.txtSoTienDong.Location = new System.Drawing.Point(103, 57);
-            this.txtSoTienDong.Name = "txtSoTienDong";
-            this.txtSoTienDong.Size = new System.Drawing.Size(123, 25);
-            this.txtSoTienDong.TabIndex = 54;
+            this.cTDHPTableAdapter.ClearBeforeFill = true;
             // 
-            // txtNgayDong
+            // sP_LAY_DS_CTDHPGridControl
             // 
-            this.txtNgayDong.Location = new System.Drawing.Point(103, 18);
-            this.txtNgayDong.Name = "txtNgayDong";
-            this.txtNgayDong.Size = new System.Drawing.Size(176, 25);
-            this.txtNgayDong.TabIndex = 55;
+            this.sP_LAY_DS_CTDHPGridControl.DataSource = this.bdsCTDHP;
+            this.sP_LAY_DS_CTDHPGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sP_LAY_DS_CTDHPGridControl.Location = new System.Drawing.Point(306, 0);
+            this.sP_LAY_DS_CTDHPGridControl.MainView = this.gvCTDHP;
+            this.sP_LAY_DS_CTDHPGridControl.MenuManager = this.barManager1;
+            this.sP_LAY_DS_CTDHPGridControl.Name = "sP_LAY_DS_CTDHPGridControl";
+            this.sP_LAY_DS_CTDHPGridControl.Size = new System.Drawing.Size(756, 314);
+            this.sP_LAY_DS_CTDHPGridControl.TabIndex = 1013;
+            this.sP_LAY_DS_CTDHPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCTDHP});
             // 
-            // label2
+            // gvCTDHP
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(6, 60);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(91, 17);
-            label2.TabIndex = 54;
-            label2.Text = "Số Tiền Đóng:";
+            this.gvCTDHP.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colNGAYDONG,
+            this.colSOTIENDONG});
+            this.gvCTDHP.GridControl = this.sP_LAY_DS_CTDHPGridControl;
+            this.gvCTDHP.Name = "gvCTDHP";
             // 
-            // label3
+            // colNGAYDONG
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(6, 24);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(79, 17);
-            label3.TabIndex = 56;
-            label3.Text = "Ngày Đóng:";
+            this.colNGAYDONG.FieldName = "NGAYDONG";
+            this.colNGAYDONG.Name = "colNGAYDONG";
+            this.colNGAYDONG.Visible = true;
+            this.colNGAYDONG.VisibleIndex = 0;
             // 
-            // label4
+            // colSOTIENDONG
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(238, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 17);
-            this.label4.TabIndex = 57;
-            this.label4.Text = "VNĐ";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(151, 102);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(90, 30);
-            this.buttonCancel.TabIndex = 58;
-            this.buttonCancel.Text = "Hủy";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.colSOTIENDONG.FieldName = "SOTIENDONG";
+            this.colSOTIENDONG.Name = "colSOTIENDONG";
+            this.colSOTIENDONG.Visible = true;
+            this.colSOTIENDONG.VisibleIndex = 1;
             // 
             // FormHocPhi
             // 
@@ -683,12 +696,13 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gcDSHP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHP)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcCTDHP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -733,10 +747,6 @@ namespace QLDSV_TC
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbNK;
         private System.Windows.Forms.ComboBox cmbHK;
-        private DevExpress.XtraGrid.GridControl gcCTDHP;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvCTDHP;
-        private DevExpress.XtraGrid.Columns.GridColumn colNGAYDONG;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOTIENDONG;
         private System.Windows.Forms.Button btnAddCTDHP;
         private DevExpress.XtraGrid.Columns.GridColumn colNIENKHOA;
         private DevExpress.XtraGrid.Columns.GridColumn colHOCKY;
@@ -750,5 +760,11 @@ namespace QLDSV_TC
         private System.Windows.Forms.TextBox txtSoTienDong;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.BindingSource bdsCTDHP;
+        private QLDSV_TCDataSet2TableAdapters.SP_LAY_DS_CTDHPTableAdapter cTDHPTableAdapter;
+        private DevExpress.XtraGrid.GridControl sP_LAY_DS_CTDHPGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCTDHP;
+        private DevExpress.XtraGrid.Columns.GridColumn colNGAYDONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOTIENDONG;
     }
 }

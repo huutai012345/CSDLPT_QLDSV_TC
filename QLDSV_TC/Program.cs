@@ -82,6 +82,7 @@ namespace QLDSV_TC
             if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn);
             da.Fill(dt);
+          
             return dt;
         }
 
