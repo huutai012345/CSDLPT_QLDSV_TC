@@ -65,7 +65,7 @@ namespace QLDSV_TC
             this.fillToolStrip = new System.Windows.Forms.ToolStrip();
             this.mASVToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.txtMaSV = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnLoadSV = new System.Windows.Forms.ToolStripButton();
             this.gcDSHP = new DevExpress.XtraGrid.GridControl();
             this.gvHP = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colNIENKHOA = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,6 +74,11 @@ namespace QLDSV_TC
             this.colSOTIENCANDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOCPHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.sP_LAY_DS_CTDHPGridControl = new DevExpress.XtraGrid.GridControl();
+            this.bdsCTDHP = new System.Windows.Forms.BindingSource(this.components);
+            this.gvCTDHP = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colNGAYDONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTIENDONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -85,12 +90,11 @@ namespace QLDSV_TC
             this.btnAddCTDHP = new System.Windows.Forms.Button();
             this.cmbNK = new System.Windows.Forms.ComboBox();
             this.cmbHK = new System.Windows.Forms.ComboBox();
-            this.bdsCTDHP = new System.Windows.Forms.BindingSource(this.components);
             this.cTDHPTableAdapter = new QLDSV_TC.QLDSV_TCDataSet2TableAdapters.SP_LAY_DS_CTDHPTableAdapter();
-            this.sP_LAY_DS_CTDHPGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gvCTDHP = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colNGAYDONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOTIENDONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtHoTen = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.txtMaLop = new System.Windows.Forms.ToolStripTextBox();
             hOCKYLabel = new System.Windows.Forms.Label();
             nIENKHOALabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -103,11 +107,11 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gcDSHP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHP)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).BeginInit();
             this.SuspendLayout();
             // 
             // hOCKYLabel
@@ -393,7 +397,11 @@ namespace QLDSV_TC
             this.fillToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mASVToolStripLabel,
             this.txtMaSV,
-            this.toolStripButton1});
+            this.btnLoadSV,
+            this.toolStripLabel1,
+            this.txtHoTen,
+            this.toolStripLabel2,
+            this.txtMaLop});
             this.fillToolStrip.Location = new System.Drawing.Point(0, 58);
             this.fillToolStrip.Name = "fillToolStrip";
             this.fillToolStrip.Size = new System.Drawing.Size(1062, 29);
@@ -413,14 +421,14 @@ namespace QLDSV_TC
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(150, 29);
             // 
-            // toolStripButton1
+            // btnLoadSV
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(106, 26);
-            this.toolStripButton1.Text = "Tải Học Phí";
-            this.toolStripButton1.Click += new System.EventHandler(this.fillToolStripButton_Click_1);
+            this.btnLoadSV.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnLoadSV.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadSV.Name = "btnLoadSV";
+            this.btnLoadSV.Size = new System.Drawing.Size(106, 26);
+            this.btnLoadSV.Text = "Tải Học Phí";
+            this.btnLoadSV.Click += new System.EventHandler(this.fillToolStripButton_Click_1);
             // 
             // gcDSHP
             // 
@@ -493,6 +501,46 @@ namespace QLDSV_TC
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1062, 314);
             this.panel1.TabIndex = 1012;
+            // 
+            // sP_LAY_DS_CTDHPGridControl
+            // 
+            this.sP_LAY_DS_CTDHPGridControl.DataSource = this.bdsCTDHP;
+            this.sP_LAY_DS_CTDHPGridControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sP_LAY_DS_CTDHPGridControl.Location = new System.Drawing.Point(306, 0);
+            this.sP_LAY_DS_CTDHPGridControl.MainView = this.gvCTDHP;
+            this.sP_LAY_DS_CTDHPGridControl.MenuManager = this.barManager1;
+            this.sP_LAY_DS_CTDHPGridControl.Name = "sP_LAY_DS_CTDHPGridControl";
+            this.sP_LAY_DS_CTDHPGridControl.Size = new System.Drawing.Size(756, 314);
+            this.sP_LAY_DS_CTDHPGridControl.TabIndex = 1013;
+            this.sP_LAY_DS_CTDHPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvCTDHP});
+            // 
+            // bdsCTDHP
+            // 
+            this.bdsCTDHP.DataMember = "SP_LAY_DS_CTDHP";
+            this.bdsCTDHP.DataSource = this.qLDSV_TCDataSet2;
+            // 
+            // gvCTDHP
+            // 
+            this.gvCTDHP.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colNGAYDONG,
+            this.colSOTIENDONG});
+            this.gvCTDHP.GridControl = this.sP_LAY_DS_CTDHPGridControl;
+            this.gvCTDHP.Name = "gvCTDHP";
+            // 
+            // colNGAYDONG
+            // 
+            this.colNGAYDONG.FieldName = "NGAYDONG";
+            this.colNGAYDONG.Name = "colNGAYDONG";
+            this.colNGAYDONG.Visible = true;
+            this.colNGAYDONG.VisibleIndex = 0;
+            // 
+            // colSOTIENDONG
+            // 
+            this.colSOTIENDONG.FieldName = "SOTIENDONG";
+            this.colSOTIENDONG.Name = "colSOTIENDONG";
+            this.colSOTIENDONG.Visible = true;
+            this.colSOTIENDONG.VisibleIndex = 1;
             // 
             // groupBox2
             // 
@@ -624,49 +672,37 @@ namespace QLDSV_TC
             this.cmbHK.Size = new System.Drawing.Size(132, 25);
             this.cmbHK.TabIndex = 47;
             // 
-            // bdsCTDHP
-            // 
-            this.bdsCTDHP.DataMember = "SP_LAY_DS_CTDHP";
-            this.bdsCTDHP.DataSource = this.qLDSV_TCDataSet2;
-            // 
             // cTDHPTableAdapter
             // 
             this.cTDHPTableAdapter.ClearBeforeFill = true;
             // 
-            // sP_LAY_DS_CTDHPGridControl
+            // toolStripLabel1
             // 
-            this.sP_LAY_DS_CTDHPGridControl.DataSource = this.bdsCTDHP;
-            this.sP_LAY_DS_CTDHPGridControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sP_LAY_DS_CTDHPGridControl.Location = new System.Drawing.Point(306, 0);
-            this.sP_LAY_DS_CTDHPGridControl.MainView = this.gvCTDHP;
-            this.sP_LAY_DS_CTDHPGridControl.MenuManager = this.barManager1;
-            this.sP_LAY_DS_CTDHPGridControl.Name = "sP_LAY_DS_CTDHPGridControl";
-            this.sP_LAY_DS_CTDHPGridControl.Size = new System.Drawing.Size(756, 314);
-            this.sP_LAY_DS_CTDHPGridControl.TabIndex = 1013;
-            this.sP_LAY_DS_CTDHPGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvCTDHP});
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(57, 26);
+            this.toolStripLabel1.Text = "Họ Tên";
             // 
-            // gvCTDHP
+            // txtHoTen
             // 
-            this.gvCTDHP.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colNGAYDONG,
-            this.colSOTIENDONG});
-            this.gvCTDHP.GridControl = this.sP_LAY_DS_CTDHPGridControl;
-            this.gvCTDHP.Name = "gvCTDHP";
+            this.txtHoTen.Enabled = false;
+            this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(150, 29);
             // 
-            // colNGAYDONG
+            // toolStripLabel2
             // 
-            this.colNGAYDONG.FieldName = "NGAYDONG";
-            this.colNGAYDONG.Name = "colNGAYDONG";
-            this.colNGAYDONG.Visible = true;
-            this.colNGAYDONG.VisibleIndex = 0;
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(63, 26);
+            this.toolStripLabel2.Text = "Mã Lớp";
             // 
-            // colSOTIENDONG
+            // txtMaLop
             // 
-            this.colSOTIENDONG.FieldName = "SOTIENDONG";
-            this.colSOTIENDONG.Name = "colSOTIENDONG";
-            this.colSOTIENDONG.Visible = true;
-            this.colSOTIENDONG.VisibleIndex = 1;
+            this.txtMaLop.Enabled = false;
+            this.txtMaLop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(100, 29);
             // 
             // FormHocPhi
             // 
@@ -696,13 +732,13 @@ namespace QLDSV_TC
             ((System.ComponentModel.ISupportInitialize)(this.gcDSHP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvHP)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTDHP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sP_LAY_DS_CTDHPGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvCTDHP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,7 +778,7 @@ namespace QLDSV_TC
         private QLDSV_TCDataSet2TableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl gcDSHP;
         private DevExpress.XtraGrid.Views.Grid.GridView gvHP;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnLoadSV;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cmbNK;
@@ -766,5 +802,9 @@ namespace QLDSV_TC
         private DevExpress.XtraGrid.Views.Grid.GridView gvCTDHP;
         private DevExpress.XtraGrid.Columns.GridColumn colNGAYDONG;
         private DevExpress.XtraGrid.Columns.GridColumn colSOTIENDONG;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox txtHoTen;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox txtMaLop;
     }
 }

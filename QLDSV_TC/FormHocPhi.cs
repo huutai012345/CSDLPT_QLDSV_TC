@@ -64,6 +64,7 @@ namespace QLDSV_TC
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.btnAddCTDHP.Enabled = false;
+            this.btnLoadSV.Enabled = false;
 
             this.modifyMode();
             bdsHP.AddNew();
@@ -79,6 +80,7 @@ namespace QLDSV_TC
             if (Utils.addHocPhi(this.maSV, cmbNK.Text, int.Parse(cmbHK.Text), int.Parse(txtHocPhi.Text)))
             {
                 MessageBox.Show("Ghi thành công", "THÔNG BÁO", MessageBoxButtons.OK);
+                this.btnLoadSV.Enabled = true;
                 this.confrimMode();
                 this.refesh();
             }
@@ -92,6 +94,7 @@ namespace QLDSV_TC
         {
             bdsHP.RemoveCurrent();
             this.confrimMode();
+            this.btnLoadSV.Enabled = true;
         }
 
         private void btnClose_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -106,9 +109,24 @@ namespace QLDSV_TC
 
         private void fillToolStripButton_Click_1(object sender, EventArgs e)
         {
+            string maSV = txtMaSV.Text.Trim();
+            if (maSV == "")
+            {
+                MessageBox.Show("Mã Sinh Viên Không Hợp Lệ", "THÔNG BÁO", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (Utils.getListTTSV(maSV, this.txtHoTen, this.txtMaLop))
+            {   
+                this.maSV = maSV;
+            }
+            else
+            {
+                return;
+            }
+
             try
             {
-                this.maSV = txtMaSV.Text;
                 this.panel1.Enabled = true;
                 this.bar1.Visible = true;
 
@@ -156,6 +174,7 @@ namespace QLDSV_TC
         private void btnAddCTDHP_Click(object sender, EventArgs e)
         {
             panel2.Visible = true;
+            this.btnLoadSV.Enabled = false;
             this.gcDSHP.Enabled = false;
             this.bar1.Visible = false;
             this.btnAddCTDHP.Enabled = false;
@@ -167,6 +186,7 @@ namespace QLDSV_TC
             this.gcDSHP.Enabled = true;
             this.bar1.Visible = true;
             this.btnAddCTDHP.Enabled = true;
+            this.btnLoadSV.Enabled = true;
         }
 
         private void btnSaveCTHP_Click(object sender, EventArgs e)
@@ -179,12 +199,14 @@ namespace QLDSV_TC
             if (Utils.addCTHP(this.maSV, this.NK, this.HK, int.Parse(txtSoTienDong.Text), txtNgayDong.Text))
             {
                 MessageBox.Show("Ghi thành công", "THÔNG BÁO", MessageBoxButtons.OK);
-
                 this.cTDHPTableAdapter.Fill(this.qLDSV_TCDataSet2.SP_LAY_DS_CTDHP, this.maSV, this.NK, new System.Nullable<int>(((int)(System.Convert.ChangeType(this.HK, typeof(int))))));
 
                 this.btnAddCTDHP.Enabled = true;
+                this.bar1.Visible = true;
                 panel2.Visible = false;
                 gcDSHP.Enabled = true;
+                this.btnLoadSV.Enabled = true;
+                this.refesh();
             }
             else
             {

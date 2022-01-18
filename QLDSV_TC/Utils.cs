@@ -88,6 +88,25 @@ namespace QLDSV_TC
             }
             return false;
         }
+        public static bool getListTTSV(string maSV, ToolStripTextBox txtTen, ToolStripTextBox txtMaLop)
+        {
+            Program.myReader = Program.ExecSqlDataReader("EXEC SP_GET_TTSV @MASV =N'" + maSV + "'");
+            if (Program.myReader != null)
+            {
+                if (Program.myReader.Read())
+                {
+                    txtTen.Text = Program.myReader.GetString(0);
+                    txtMaLop.Text = Program.myReader.GetString(1);
+
+                    Program.myReader.Close();
+                    return true;
+                }
+
+                Program.myReader.Close();
+            }
+            return false;
+        }
+
 
         public static void updateDiem(DataTable dt)
         {
